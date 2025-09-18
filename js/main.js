@@ -1,36 +1,6 @@
 document.addEventListener('DOMContentLoaded', () => {
 
-    // --- ЛОГИКА ПЕРЕКЛЮЧЕНИЯ ТЕМЫ ---
-    const themeToggleBtn = document.getElementById('theme-toggle');
-    const themeToggleDarkIcon = document.getElementById('theme-toggle-dark-icon');
-    const themeToggleLightIcon = document.getElementById('theme-toggle-light-icon');
-
-    // Проверяем сохраненную тему в localStorage
-    if (localStorage.getItem('theme') === 'dark' || (!('theme' in localStorage) && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
-        document.documentElement.classList.add('dark');
-        document.body.classList.add('dark-mode');
-        themeToggleLightIcon.classList.remove('hidden');
-    } else {
-        document.documentElement.classList.remove('dark');
-        document.body.classList.remove('dark-mode');
-        themeToggleDarkIcon.classList.remove('hidden');
-    }
-
-    themeToggleBtn.addEventListener('click', () => {
-        // Переключаем классы
-        document.documentElement.classList.toggle('dark');
-        document.body.classList.toggle('dark-mode');
-
-        // Сохраняем выбор пользователя
-        const isDarkMode = document.documentElement.classList.contains('dark');
-        localStorage.setItem('theme', isDarkMode ? 'dark' : 'light');
-
-        // Переключаем иконки
-        themeToggleDarkIcon.classList.toggle('hidden', !isDarkMode);
-        themeToggleLightIcon.classList.toggle('hidden', isDarkMode);
-    });
-
-    // --- ЛОГИКА АНИМАЦИИ ПРИ ПРОКРУТКЕ ---
+    // --- SCROLL ANIMATION LOGIC ---
     const sections = document.querySelectorAll('.fade-in-section');
 
     const observer = new IntersectionObserver((entries) => {
@@ -48,3 +18,4 @@ document.addEventListener('DOMContentLoaded', () => {
         observer.observe(section);
     });
 });
+
