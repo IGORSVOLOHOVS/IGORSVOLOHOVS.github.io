@@ -3,120 +3,340 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Igors Volohovs - C/C++ Developer & Educator</title>
+    <title>Igors Volohovs - CV</title>
+    <!-- Tailwind CSS for styling -->
     <script src="https://cdn.tailwindcss.com"></script>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700&display=swap" rel="stylesheet">
-    <!-- Link our styles file -->
-    <link rel="stylesheet" href="css/style.css">
+    <!-- Font Awesome for icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #f3f4f6;
+            font-size: 1.05rem;
+        }
+        .page-container {
+            max-width: 1000px;
+            margin: 2rem auto;
+            background: white;
+            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+            display: flex;
+            flex-direction: column;
+        }
+        @media (min-width: 768px) {
+            .page-container {
+                flex-direction: row;
+            }
+        }
+        @media print {
+            .break-before-page {
+                break-before: page;
+                margin-top: 0 !important;
+            }
+        }
+    </style>
 </head>
-<body>
+<body class="text-gray-800 antialiased print:bg-white print:m-0">
 
-    <div class="container mx-auto p-4 md:p-8 max-w-4xl">
+    <div class="page-container print:shadow-none print:max-w-none print:m-0 print:w-full">
         
-        <!-- Header -->
-        <header class="flex flex-col md:flex-row items-center justify-between mb-10 fade-in-section">
-            <div class="flex items-center">
-                <img src="image.png" alt="Igors Volohovs" class="w-24 h-24 md:w-32 md:h-32 rounded-full object-cover mr-6 profile-image">
-                <div class="text-left">
-                    <h1 class="text-4xl md:text-5xl font-bold">Igors Volohovs</h1>
-                    <p class="text-xl md:text-2xl text-accent mt-1">C/C++ Developer & Educator</p>
-                </div>
+        <!-- LEFT SIDEBAR -->
+        <div class="w-full md:w-1/3 bg-slate-800 text-white p-8 md:min-h-screen">
+            
+            <!-- Profile Picture Placeholder -->
+            <div class="flex justify-center mb-8">
+                <img src="image.png" alt="Igors Volohovs" class="w-52 h-52 rounded-full object-cover border-4 border-slate-600">
             </div>
-            <div class="mt-6 md:mt-0 w-full md:w-auto">
-                 <div class="flex flex-col items-center md:items-end space-y-2 text-sm text-gray-600">
-                    <a href="mailto:igorsvolohovs@gmail.com" class="flex items-center hover:text-accent transition-colors">
-                        <svg class="w-4 h-4 mr-2" fill="currentColor" viewBox="0 0 20 20"><path d="M2.003 5.884L10 9.882l7.997-3.998A2 2 0 0016 4H4a2 2 0 00-1.997 1.884z"></path><path d="M18 8.118l-8 4-8-4V14a2 2 0 002 2h12a2 2 0 002-2V8.118z"></path></svg>
-                        igorsvolohovs@gmail.com
-                    </a>
-                    <span class="flex items-center">
-                        <svg class="w-4 h-4 mr-2" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M5.05 4.05a7 7 0 119.9 9.9L10 18.9l-4.95-4.95a7 7 0 010-9.9zM10 11a2 2 0 100-4 2 2 0 000 4z" clip-rule="evenodd"></path></svg>
-                        Riga, Latvia
-                    </span>
-                    <div class="flex space-x-4 mt-2">
-                         <a href="https://github.com/IGORSVOLOHOVS" target="_blank" class="hover:text-accent">GitHub</a>
-                         <a href="https://www.linkedin.com/in/igors-volohovs-764850221/" target="_blank" class="hover:text-accent">LinkedIn</a>
-                         <a href="https://t.me/IgorsVolohovs" target="_blank" class="hover:text-accent">Telegram</a>
-                    </div>
-                </div>
-            </div>
-        </header>
 
-        <!-- Professional Summary Section -->
-        <section class="mb-10 fade-in-section">
-            <h2 class="text-2xl font-bold section-title">Professional Summary</h2>
-            <div class="card p-6">
-                <p class="leading-relaxed text-lg">
-                    A dedicated C/C++ developer and educator with a passion for solving complex technical challenges. My work is driven by a core philosophy: "I am a dreamer-researcher and a pragmatist-creator." This principle guides my approach, blending innovative exploration with practical, results-oriented implementation. I thrive on deconstructing intricate problems and building robust, efficient solutions.
+            <!-- Contacts Section -->
+            <div class="mb-8">
+                <h2 class="text-xl font-bold border-b-2 border-slate-600 pb-1 mb-4 tracking-wider uppercase">Contacts</h2>
+                <ul class="space-y-3 text-base">
+                    <li class="flex items-start">
+                        <i class="fas fa-phone mt-1 w-5 text-blue-400"></i>
+                        <span>+37127572829</span>
+                    </li>
+                    <li class="flex items-start">
+                        <i class="fas fa-envelope mt-1 w-5 text-blue-400"></i>
+                        <span class="break-all">igorsvolohovs@gmail.com</span>
+                    </li>
+                    <li class="flex items-start">
+                        <i class="fas fa-map-marker-alt mt-1 w-5 text-blue-400"></i>
+                        <span>47 Pūces iela, Riga, 1082, Latvia</span>
+                    </li>
+                </ul>
+            </div>
+
+            <!-- Links Section -->
+            <div class="mb-8">
+                <h2 class="text-xl font-bold border-b-2 border-slate-600 pb-1 mb-4 tracking-wider uppercase">Links</h2>
+                <ul class="space-y-3 text-base">
+                    <li class="flex items-start">
+                        <i class="fab fa-telegram mt-1 w-5 text-blue-400"></i>
+                        <a href="https://t.me/IgorsVolohovs" target="_blank" class="hover:text-blue-300 break-all">t.me/IgorsVolohovs</a>
+                    </li>
+                    <li class="flex items-start">
+                        <i class="fab fa-linkedin mt-1 w-5 text-blue-400"></i>
+                        <a href="https://www.linkedin.com/in/igors-volohovs-764850221/" target="_blank" class="hover:text-blue-300 break-all">linkedin.com/in/igors-volohovs-764850221/</a>
+                    </li>
+                    <li class="flex items-start">
+                        <i class="fab fa-github mt-1 w-5 text-blue-400"></i>
+                        <a href="https://github.com/IGORSVOLOHOVS" target="_blank" class="hover:text-blue-300 break-all">github.com/IGORSVOLOHOVS</a>
+                    </li>
+                </ul>
+            </div>
+
+            <!-- Skills Section -->
+            <div class="mb-8">
+                <h2 class="text-xl font-bold border-b-2 border-slate-600 pb-1 mb-4 tracking-wider uppercase">Skills</h2>
+                <div class="flex flex-wrap gap-2 text-base">
+                    <span class="bg-slate-700 text-slate-200 px-2 py-0.5 rounded">C++23</span>
+                    <span class="bg-slate-700 text-slate-200 px-2 py-0.5 rounded">Python 3.13</span>
+                    <span class="bg-slate-700 text-slate-200 px-2 py-0.5 rounded">Qt Framework</span>
+                    <span class="bg-slate-700 text-slate-200 px-2 py-0.5 rounded">Windows API</span>
+                    <span class="bg-slate-700 text-slate-200 px-2 py-0.5 rounded">Visual Studio</span>
+                    <span class="bg-slate-700 text-slate-200 px-2 py-0.5 rounded">CMake</span>
+                    <span class="bg-slate-700 text-slate-200 px-2 py-0.5 rounded">Github & Actions</span>
+                    <span class="bg-slate-700 text-slate-200 px-2 py-0.5 rounded">SWIG</span>
+                    <span class="bg-slate-700 text-slate-200 px-2 py-0.5 rounded">Google Antigravity</span>
+                    <span class="bg-slate-700 text-slate-200 px-2 py-0.5 rounded">Linux</span>
+                    <span class="bg-slate-700 text-slate-200 px-2 py-0.5 rounded">Conan</span>
+                    <span class="bg-slate-700 text-slate-200 px-2 py-0.5 rounded">FreeRTOS</span>
+                    <span class="bg-slate-700 text-slate-200 px-2 py-0.5 rounded">UML 2.0 / C4 Model</span>
+                    <span class="bg-slate-700 text-slate-200 px-2 py-0.5 rounded">Jira / Confluence</span>
+                    <span class="bg-slate-700 text-slate-200 px-2 py-0.5 rounded">Rust / Java / C# / Julia</span>
+                    <span class="bg-slate-700 text-slate-200 px-2 py-0.5 rounded">OpenGL</span>
+                    <span class="bg-slate-700 text-slate-200 px-2 py-0.5 rounded">STM32CubeIDE</span>
+                    <span class="bg-slate-700 text-slate-200 px-2 py-0.5 rounded">GTest / GBenchmark</span>
+                    <span class="bg-slate-700 text-slate-200 px-2 py-0.5 rounded">Docker / n8n</span>
+                    <span class="bg-slate-700 text-slate-200 px-2 py-0.5 rounded">Jenkins</span>
+                    <span class="bg-slate-700 text-slate-200 px-2 py-0.5 rounded">SQL</span>
+                </div>
+            </div>
+
+
+            <!-- Languages Section -->
+            <div class="mb-8">
+                <h2 class="text-xl font-bold border-b-2 border-slate-600 pb-1 mb-4 tracking-wider uppercase">Languages</h2>
+                <ul class="space-y-1 text-base">
+                    <li class="flex justify-between">
+                        <span>English</span>
+                        <span class="text-slate-400">Professional</span>
+                    </li>
+                    <li class="flex justify-between">
+                        <span>Latvian</span>
+                        <span class="text-slate-400">Native</span>
+                    </li>
+                    <li class="flex justify-between">
+                        <span>Russian</span>
+                        <span class="text-slate-400">Native</span>
+                    </li>
+                </ul>
+            </div>
+
+            <!-- Hobbies Section -->
+            <div class="mb-8">
+                <h2 class="text-xl font-bold border-b-2 border-slate-600 pb-1 mb-4 tracking-wider uppercase">Hobbies</h2>
+                <ul class="space-y-3 text-base">
+                    <li class="flex items-start">
+                        <i class="fas fa-cube mt-1 w-5 text-blue-400"></i>
+                        <span>Assemble a 3x3 - 7x7 Rubik's Cube</span>
+                    </li>
+                    <li class="flex items-start">
+                        <i class="fas fa-brain mt-1 w-5 text-blue-400"></i>
+                        <span>Learning Maths & Developing my own "Theory of effective thinking and task solving"</span>
+                    </li>
+                </ul>
+            </div>
+            
+        </div>
+
+        <!-- RIGHT MAIN CONTENT -->
+        <div class="w-full md:w-2/3 p-8 bg-white">
+            
+            <!-- Header (Name & Title) -->
+            <div class="mb-8">
+                <h1 class="text-4xl font-black text-gray-900 uppercase tracking-widest mb-1">Igors Volohovs</h1>
+                <h2 class="text-2xl text-blue-600 font-medium tracking-wider">C/C++ Developer</h2>
+            </div>
+
+            <!-- About Me -->
+            <div class="mb-8">
+                <h3 class="text-2xl font-bold text-gray-800 border-b-2 border-gray-200 pb-2 mb-4 uppercase flex items-center">
+                    <i class="fas fa-user-circle mr-3 text-gray-400"></i> About Me
+                </h3>
+                <p class="text-gray-600 leading-relaxed text-justify text-base">
+                    C++ Developer focused on solving complex technical challenges and low-level system optimization. I am a proactive learner who enjoys deep-diving into technology and sharing knowledge with the team.
                 </p>
             </div>
-        </section>
 
-        <!-- Work Experience Section -->
-        <section class="mb-10 fade-in-section">
-            <h2 class="text-2xl font-bold section-title">Work Experience</h2>
-            <div class="space-y-6">
+            <!-- Work Experience -->
+            <div class="mb-8">
+                <h3 class="text-2xl font-bold text-gray-800 border-b-2 border-gray-200 pb-2 mb-4 uppercase flex items-center">
+                    <i class="fas fa-briefcase mr-3 text-gray-400"></i> Work Experience
+                </h3>
+                
                 <!-- Job 1 -->
-                <div class="card p-4">
-                    <div class="flex justify-between items-baseline">
-                        <h3 class="font-bold text-lg">Research Engineering in Additive Lab</h3>
-                        <span class="text-sm font-medium text-gray-500">Jan 2024 – Present</span>
+                <div class="mb-6">
+                    <div class="flex flex-col sm:flex-row sm:justify-between sm:items-baseline mb-1">
+                        <h4 class="text-lg font-bold text-gray-900">Software Developer in TSI AdditiveLab</h4>
+                        <span class="text-sm font-semibold text-blue-600 bg-blue-50 px-2 py-1 rounded">Jan 2024 - Present</span>
                     </div>
-                    <p class="text-md text-gray-600 mb-2">TSI, Riga</p>
-                    <p>Parallel acquisition, analysis, graphical display and storage of data using UDP obtained from YASKAWA welding robot using WAAM technology.</p>
-                    <p class="mt-2 text-sm text-gray-600"><strong class="font-semibold">Technologies:</strong> C/C++23, MySQL, Qt Framework, Python, C#.</p>
+                    <div class="text-md font-medium text-gray-700 mb-2">TSI | Riga, Latvia (Wire Arc Additive Manufacturing)</div>
+                    <p class="text-gray-600 text-base mb-2 text-justify">
+                        Developing <strong>WaamMonitoring</strong> — a comprehensive software for real-time monitoring, graphical analysis, and data storage of the metal 3D printing process (my Bachelor's thesis project). Implemented <strong>WaamAPI</strong>: a low-level HAL in C++23 with Python 3.13 bindings for seamless hardware-software integration.
+                    </p>
+                    <p class="text-gray-600 text-base mb-2">
+                        <strong>Hardware:</strong> Yaskawa GA-50, Yaskawa HC-10, Wenglor MLZL171 (2D profilometer), Optris CTi Pyrometers, Fronius TPS 500i.
+                    </p>
+                    <p class="text-sm font-semibold text-gray-500">
+                        <span class="text-gray-700">Technologies used:</span> C++23, Python 3.13, Qt Framework, Windows API.
+                    </p>
                 </div>
-                <!-- Job 2 -->
-                <div class="card p-4">
-                    <div class="flex justify-between items-baseline">
-                        <h3 class="font-bold text-lg">Medical Device Software Developer</h3>
-                        <span class="text-sm font-medium text-gray-500">Dec 2022 – Present</span>
-                    </div>
-                    <p class="text-md text-gray-600 mb-2">IDEAHUB, Riga</p>
-                    <p>Creation of software for a medical cell staining machine. Connected sensors, motors, and network devices to STM32, and wrote a UART-USB driver to communicate Raspberry Pi with several STM32.</p>
-                    <p class="mt-2 text-sm text-gray-600"><strong class="font-semibold">Technologies:</strong> C/C++11, STM32Cube IDE, Linux, Rust, SWIG.</p>
-                </div>
-            </div>
-        </section>
 
-        <!-- Skills Section -->
-        <section class="mb-10 fade-in-section">
-            <h2 class="text-2xl font-bold section-title">Skills</h2>
-            <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
-                <div class="card p-4">
-                    <h3 class="text-lg font-semibold mb-2">Technical Skills</h3>
-                    <ul class="space-y-2">
-                        <li><strong>Languages:</strong> C/C++ (11/23), Python, C#, Rust</li>
-                        <li><strong>Databases:</strong> MySQL, SQLite, MS SQL</li>
-                        <li><strong>Frameworks:</strong> Qt Framework, OpenGL</li>
-                        <li><strong>Tools & Platforms:</strong> Git, Docker, Linux, FreeRTOS, CMake</li>
-                    </ul>
+                <!-- Job 0 (New) -->
+                <div class="mb-6">
+                    <div class="flex flex-col sm:flex-row sm:justify-between sm:items-baseline mb-1">
+                        <h4 class="text-lg font-bold text-gray-900">Software Developer (Edge AI)</h4>
+                        <span class="text-sm font-semibold text-blue-600 bg-blue-50 px-2 py-1 rounded">Jan 2026 - Present</span>
+                    </div>
+                    <div class="text-md font-medium text-gray-700 mb-2">TSI AdditiveLab | Riga, Latvia</div>
+                    <p class="text-gray-600 text-base mb-2 text-justify">
+                        Edge AI device based on Rockchip RV1106. Preparation of dataset, training and deployment of YOLOv8n neural network for defects localization. The goal of this project is to create a low-cost Edge AI device (robot mounted) to control quality of welding seems in AdditiveLab. 
+                    </p>
+                    <p class="text-sm font-semibold text-gray-500">
+                        <span class="text-gray-700">Technologies used:</span> YOLOv8n, Python, C++, OpenCV, SSH, RKNN-Toolkit2.
+                    </p>
                 </div>
-                <div class="card p-4">
-                    <h3 class="text-lg font-semibold mb-2">Professional Skills</h3>
-                     <ul class="list-disc list-inside">
-                        <li>Creative Problem Solving</li>
-                        <li>Critical Thinking & Analysis</li>
-                        <li>Effective Communication</li>
-                        <li>Leadership & Mentoring</li>
-                    </ul>
+
+
+                <!-- Job 2 -->
+                <div class="mb-6">
+                    <div class="flex flex-col sm:flex-row sm:justify-between sm:items-baseline mb-1">
+                        <h4 class="text-lg font-bold text-gray-900">Medical Device Embedded Firmware Developer</h4>
+                        <span class="text-sm font-semibold text-blue-600 bg-blue-50 px-2 py-1 rounded">Dec 2022 - Present</span>
+                    </div>
+                    <div class="text-md font-medium text-gray-700 mb-2">IDEAHUB | Riga, Latvia</div>
+                    <p class="text-gray-600 text-base mb-2">
+                        Development of firmware for a medical cell staining machine. Connected various sensors, motors and network devices to STM32F4 MCUs, and wrote a driver for UART-USB module to connect Raspberry Pi with several STM32F4 MCUs.
+                    </p>
+                    <p class="text-sm font-semibold text-gray-500">
+                        <span class="text-gray-700">Technologies used:</span> C/C++11, STM32CubeIDE, Linux, Rust, SWIG.
+                    </p>
+                </div>
+
+                <!-- Job 3 -->
+                <div class="mb-6">
+                    <div class="flex flex-col sm:flex-row sm:justify-between sm:items-baseline mb-1">
+                        <h4 class="text-lg font-bold text-gray-900">ESF Project Developer</h4>
+                        <span class="text-sm font-semibold text-blue-600 bg-blue-50 px-2 py-1 rounded">Feb 2023 - Jul 2023</span>
+                    </div>
+                    <div class="text-md font-medium text-gray-700 mb-2">TSI | Riga, Latvia</div>
+                    <p class="text-gray-600 text-base mb-2">
+                        Creating software for the mobile robot KOALA. The goal was to create a user-friendly development environment in C/C++ and Python for creating new projects.
+                    </p>
+                    <p class="text-sm font-semibold text-gray-500">
+                        <span class="text-gray-700">Technologies used:</span> CMake, C/C++11, Python, Linux.
+                    </p>
+                </div>
+
+                <!-- Tutoring -->
+                <div class="mb-6">
+                    <div class="flex flex-col sm:flex-row sm:justify-between sm:items-baseline mb-1">
+                        <h4 class="text-lg font-bold text-gray-900">Private Tutor (Math & Programming)</h4>
+                        <span class="text-sm font-semibold text-blue-600 bg-blue-50 px-2 py-1 rounded">Sep 2022 - Present</span>
+                    </div>
+                    <p class="text-gray-600 text-sm">
+                        Teaching Mathematics and Programming to schoolchildren, helping them build strong logical foundations and practical coding skills.
+                    </p>
                 </div>
             </div>
-        </section>
-        
-        <!-- Education Section -->
-        <section class="fade-in-section">
-            <h2 class="text-2xl font-bold section-title">Education</h2>
-            <div class="space-y-4">
-                <div class="card p-4">
-                    <p class="font-bold">Computer Science Bachelor <span class="font-normal text-gray-600 float-right">2021 – Present</span></p>
-                    <p class="text-gray-600">Transport and Telecommunication Institute (TSI), Riga</p>
+
+            <!-- Education -->
+            <div class="mb-2">
+                <h3 class="text-2xl font-bold text-gray-800 border-b-2 border-gray-200 pb-2 mb-4 uppercase flex items-center">
+                    <i class="fas fa-graduation-cap mr-3 text-gray-400"></i> Education
+                </h3>
+                
+                <div class="relative border-l-2 border-blue-200 ml-3 pl-6 space-y-6">
+                    
+                    <!-- Edu - CV -->
+                    <div class="relative">
+                        <div class="absolute -left-[31px] top-1 h-4 w-4 rounded-full border-2 border-blue-500 bg-white"></div>
+                        <div class="flex flex-col sm:flex-row sm:items-baseline sm:justify-between mb-1">
+                            <h4 class="text-md font-bold text-gray-900">Computer Vision Course</h4>
+                            <span class="text-sm font-bold text-blue-600">Present</span>
+                        </div>
+                        <div class="text-base text-gray-600">Yandex Practicum</div>
+                        <p class="text-sm text-gray-500 mt-1">2 projects completed; working with OpenMMLab, PyTorch, ClearML, CVAT.</p>
+                    </div>
+
+                    <!-- Edu - Middle C++ -->
+                    <div class="relative">
+                        <div class="absolute -left-[31px] top-1 h-4 w-4 rounded-full border-2 border-blue-500 bg-white"></div>
+                        <div class="flex flex-col sm:flex-row sm:items-baseline sm:justify-between mb-1">
+                            <h4 class="text-md font-bold text-gray-900">C++ Middle Developer</h4>
+                            <span class="text-sm font-bold text-blue-600">2025</span>
+                        </div>
+                        <div class="text-base text-gray-600">Yandex Practicum</div>
+                        <p class="text-sm text-gray-500 mt-1">9 projects; advanced C++20/23 and introduction to C++26 standards.</p>
+                    </div>
+                    
+                    <!-- Edu 1 -->
+                    <div class="relative">
+                        <div class="absolute -left-[31px] top-1 h-4 w-4 rounded-full border-2 border-blue-500 bg-white"></div>
+                        <div class="flex flex-col sm:flex-row sm:items-baseline sm:justify-between mb-1">
+                            <h4 class="text-md font-bold text-gray-900">Computer Science Bachelor Program</h4>
+                            <span class="text-sm font-bold text-blue-600">2021 - Present</span>
+                        </div>
+                        <div class="text-base text-gray-600">TSI, Riga</div>
+                    </div>
+
+                    <!-- Edu 2 -->
+                    <div class="relative">
+                        <div class="absolute -left-[31px] top-1 h-4 w-4 rounded-full border-2 border-blue-500 bg-white"></div>
+                        <div class="flex flex-col sm:flex-row sm:items-baseline sm:justify-between mb-1">
+                            <h4 class="text-md font-bold text-gray-900">C++ Developer (~300 tasks were solved)</h4>
+                            <span class="text-sm font-bold text-blue-600">2021</span>
+                        </div>
+                        <div class="text-base text-gray-600">Yandex Practicum</div>
+                    </div>
+
+                    <!-- Edu 3 -->
+                    <div class="relative">
+                        <div class="absolute -left-[31px] top-1 h-4 w-4 rounded-full border-2 border-blue-500 bg-white"></div>
+                        <div class="flex flex-col sm:flex-row sm:items-baseline sm:justify-between mb-1">
+                            <h4 class="text-md font-bold text-gray-900">Basic Course for Network Management</h4>
+                            <span class="text-sm font-bold text-blue-600">2019</span>
+                        </div>
+                        <div class="text-base text-gray-600">ITLAT, Riga</div>
+                    </div>
+
+                    <!-- Edu 4 -->
+                    <div class="relative">
+                        <div class="absolute -left-[31px] top-1 h-4 w-4 rounded-full border-2 border-blue-500 bg-white"></div>
+                        <div class="flex flex-col sm:flex-row sm:items-baseline sm:justify-between mb-1">
+                            <h4 class="text-md font-bold text-gray-900">Basic Course of Java</h4>
+                            <span class="text-sm font-bold text-blue-600">2018</span>
+                        </div>
+                        <div class="text-base text-gray-600">ITLAT, Riga</div>
+                    </div>
+
+                    <!-- Edu 5 -->
+                    <div class="relative">
+                        <div class="absolute -left-[31px] top-1 h-4 w-4 rounded-full border-2 border-blue-500 bg-white"></div>
+                        <div class="flex flex-col sm:flex-row sm:items-baseline sm:justify-between mb-1">
+                            <h4 class="text-md font-bold text-gray-900">Basic Course of C/C++</h4>
+                            <span class="text-sm font-bold text-blue-600">2017</span>
+                        </div>
+                        <div class="text-base text-gray-600">ITLAT, Riga</div>
+                    </div>
+
                 </div>
             </div>
-        </section>
+
+        </div>
     </div>
 
-    <!-- Link our JavaScript file -->
-    <script src="js/main.js"></script>
 </body>
 </html>
-
