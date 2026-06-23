@@ -3,346 +3,1687 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Igors Volohovs - CV</title>
-    <!-- Tailwind CSS for styling -->
-    <script src="https://cdn.tailwindcss.com"></script>
-    <!-- Font Awesome for icons -->
+    <title>Igors Volohovs — C/C++ & Embedded Engineer</title>
+    
+    <meta name="description" content="Igors Volohovs — C/C++ & Embedded Systems Engineer. Specializing in systems programming, real-time HALs, bare-metal/RTOS firmware, and Edge AI.">
+    <meta name="keywords" content="C++, Embedded, STM32, RTOS, FreeRTOS, Edge AI, YOLOv8, RKNN, Robotics, HAL, Yaskawa, Wenglor, Systems Developer, Portfolio">
+    
+    <!-- Open Graph / Social Media Preview -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://igorsvolohovs.github.io/">
+    <meta property="og:title" content="Igors Volohovs — C/C++ & Embedded Engineer">
+    <meta property="og:description" content="Specializing in systems programming, real-time HALs, bare-metal/RTOS firmware (STM32), and Edge AI (YOLOv8, Rockchip RV1106).">
+    <meta property="og:image" content="https://igorsvolohovs.github.io/image.png">
+    
+    <!-- Google Fonts: Plus Jakarta Sans matches Gilroy's geometric feel perfectly -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+    
+    <!-- Font Awesome for clean, minimal icons -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
     <style>
-        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
-        body {
-            font-family: 'Inter', sans-serif;
-            background-color: #f3f4f6;
-            font-size: 1.05rem;
+        :root {
+            --bg-primary: #FFFFFF;      /* Pure clean white */
+            --bg-secondary: #F8F9FA;    /* Very light gray for alternate sections */
+            --bg-highlight: #E5EDFA;    /* RocketScience signature light blue */
+            
+            --text-primary: #282828;    /* RocketScience soft charcoal black */
+            --text-secondary: #5F646D;  /* Muted dark gray */
+            
+            --accent-color: #4779D9;    /* RocketScience brand royal blue */
+            --border-color: rgba(57, 63, 71, 0.15); /* Very thin, elegant lines */
+            --border-hover: rgba(71, 121, 217, 0.4);
+            
+            --font-sans: 'Plus Jakarta Sans', sans-serif;
+            --font-mono: 'JetBrains Mono', monospace;
+            
+            scroll-behavior: smooth;
         }
-        .page-container {
-            max-width: 1000px;
-            margin: 2rem auto;
-            background: white;
-            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: var(--font-sans);
+            background-color: var(--bg-primary);
+            color: var(--text-primary);
+            font-size: 14px;
+            line-height: 1.65;
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+            overflow-x: hidden;
+        }
+
+        /* Container matching RocketScience structure */
+        .container {
+            width: 100%;
+            max-width: 1140px;
+            padding-right: 20px;
+            padding-left: 20px;
+            margin-right: auto;
+            margin-left: auto;
+        }
+
+        /* Header matching rocketscience.global */
+        .header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            z-index: 100;
+            background: transparent;
+            transition: all 0.3s ease;
+        }
+
+        .header__container {
+            background: #ffffff;
+            box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.04);
+            border-radius: 0 0 0 30px;
+            padding: 1.2rem 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            transition: all 0.3s ease;
+        }
+
+        .header__logo {
+            font-size: 1.3rem;
+            font-weight: 800;
+            color: var(--text-primary);
+            text-decoration: none;
+            letter-spacing: -0.02em;
+            display: flex;
+            align-items: center;
+            gap: 6px;
+        }
+
+        .header__logo span {
+            color: var(--accent-color);
+        }
+
+        .header__nav {
+            display: flex;
+            align-items: center;
+            gap: 2.2rem;
+        }
+
+        .header__nav a {
+            text-decoration: none;
+            color: var(--text-primary);
+            font-size: 0.85rem;
+            font-weight: 700;
+            transition: color 0.2s ease;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+        }
+
+        .header__nav a:hover {
+            color: var(--accent-color);
+        }
+
+        .header__nav-mobile-only {
+            display: none;
+            flex-direction: column;
+            gap: 1.5rem;
+            width: 100%;
+            margin-top: 1rem;
+            border-top: 1px solid var(--border-color);
+            padding-top: 1.5rem;
+        }
+
+        .header__right {
+            display: flex;
+            align-items: center;
+            gap: 1.5rem;
+        }
+
+        .header__phone {
+            font-size: 0.9rem;
+            font-weight: 700;
+            color: var(--text-primary);
+            text-decoration: none;
+            transition: color 0.2s ease;
+        }
+
+        .header__phone:hover {
+            color: var(--accent-color);
+        }
+
+        /* Hamburger Toggle Button */
+        .header__toggle {
+            display: none;
+            flex-direction: column;
+            justify-content: space-between;
+            width: 22px;
+            height: 16px;
+            cursor: pointer;
+            z-index: 110;
+        }
+
+        .header__toggle span {
+            display: block;
+            width: 100%;
+            height: 2px;
+            background-color: var(--text-primary);
+            transition: all 0.3s ease;
+        }
+
+        .header__toggle.active span:nth-child(1) {
+            transform: translateY(7px) rotate(45deg);
+        }
+
+        .header__toggle.active span:nth-child(2) {
+            opacity: 0;
+        }
+
+        .header__toggle.active span:nth-child(3) {
+            transform: translateY(-7px) rotate(-45deg);
+        }
+
+        /* Mobile menu backdrop overlay */
+        .menu-backdrop {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100vw;
+            height: 100vh;
+            background: rgba(0, 0, 0, 0.15);
+            backdrop-filter: blur(4px);
+            -webkit-backdrop-filter: blur(4px);
+            opacity: 0;
+            pointer-events: none;
+            transition: opacity 0.4s ease;
+            z-index: 99;
+        }
+
+        .menu-backdrop.active {
+            opacity: 1;
+            pointer-events: auto;
+        }
+
+        /* Outline Button (RocketScience Signature style) */
+        .btn-outline {
+            font-weight: 700;
+            color: var(--accent-color);
+            padding: 9px 24px;
+            border: 0.5px solid rgba(57, 63, 71, 0.25);
+            border-radius: 49px;
+            text-decoration: none;
+            transition: all 0.25s ease;
+            font-size: 0.8rem;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            display: inline-block;
+        }
+
+        .btn-outline:hover {
+            background: var(--bg-highlight);
+            border-color: var(--bg-highlight);
+            color: var(--accent-color);
+            transform: translateY(-1px);
+        }
+
+        /* 1. Hero Section (matching .first block layout) */
+        .hero {
+            padding-top: 170px;
+            padding-bottom: 120px;
+            background-color: var(--bg-primary);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero__grid {
+            display: grid;
+            grid-template-columns: 1.2fr 0.8fr;
+            gap: 40px;
+            align-items: center;
+        }
+
+        .hero__title h1 {
+            font-size: clamp(3.2rem, 7vw, 5.5rem);
+            font-weight: 800;
+            line-height: 1.05;
+            margin-bottom: 20px;
+            letter-spacing: -0.03em;
+            color: var(--text-primary);
+        }
+
+        .hero__title h3 {
+            font-size: clamp(1.2rem, 2.5vw, 1.7rem);
+            font-weight: 700;
+            line-height: 1.35;
+            color: var(--text-primary);
+            margin-bottom: 40px;
+        }
+
+        .hero__image-wrapper {
+            position: relative;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .hero__image {
+            width: 85%;
+            border-radius: 40px;
+            object-fit: cover;
+            border: 1px solid var(--border-color);
+            box-shadow: 0 10px 30px rgba(0,0,0,0.03);
+        }
+
+        /* Overlapping text card matching `.first__text` */
+        .hero__overlay-card {
+            background: var(--bg-highlight);
+            border-radius: 0 100px 100px 0;
+            padding: 2.5rem 4rem 2.5rem 20px;
+            margin-left: -20px;
+            margin-top: 40px;
+            max-width: 850px;
+        }
+
+        .hero__overlay-card p {
+            font-size: 1.15rem;
+            line-height: 1.75;
+            color: var(--text-primary);
+        }
+
+        .hero__overlay-card p strong {
+            font-weight: 800;
+        }
+
+        /* 2. Services/Expertise Section */
+        .section-padding {
+            padding-top: 100px;
+            padding-bottom: 100px;
+        }
+
+        .section-dark {
+            background-color: var(--bg-secondary);
+        }
+
+        .section-title-group {
+            margin-bottom: 60px;
+        }
+
+        .section-title {
+            font-size: 2.6rem;
+            font-weight: 800;
+            line-height: 1.1;
+            color: var(--text-primary);
+            letter-spacing: -0.02em;
+        }
+
+        .services__grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 30px;
+        }
+
+        .services__card {
+            background: #ffffff;
+            border: 0.5px solid var(--border-color);
+            border-radius: 24px;
+            padding: 2.2rem 2rem;
             display: flex;
             flex-direction: column;
+            gap: 1.25rem;
+            transition: all 0.3s ease;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.01);
         }
-        @media (min-width: 768px) {
-            .page-container {
-                flex-direction: row;
+
+        .services__card:hover {
+            border-color: var(--accent-color);
+            box-shadow: 0 10px 25px rgba(0,0,0,0.03);
+            transform: translateY(-3px);
+        }
+
+        .services__card-icon {
+            font-size: 2rem;
+            color: var(--accent-color);
+        }
+
+        .services__card h4 {
+            font-size: 1.25rem;
+            font-weight: 700;
+            line-height: 1.25;
+            color: var(--text-primary);
+        }
+
+        .services__card p {
+            font-size: 0.95rem;
+            color: var(--text-secondary);
+            line-height: 1.6;
+        }
+
+        /* 3. Cases Section (Portfolio / Experience) */
+        .cases__timeline {
+            display: flex;
+            flex-direction: column;
+            gap: 4rem;
+        }
+
+        .case__card {
+            display: grid;
+            grid-template-columns: 0.8fr 1.2fr;
+            gap: 40px;
+            border: 0.5px solid var(--border-color);
+            border-radius: 30px;
+            padding: 3rem;
+            background: #ffffff;
+            transition: all 0.3s ease;
+        }
+
+        .case__card:hover {
+            border-color: var(--accent-color);
+            box-shadow: 0 15px 30px rgba(0,0,0,0.02);
+        }
+
+        .case__meta {
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+        }
+
+        .case__date {
+            font-family: var(--font-mono);
+            font-size: 0.85rem;
+            font-weight: 600;
+            color: var(--accent-color);
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+        }
+
+        .case__title h3 {
+            font-size: 1.8rem;
+            font-weight: 800;
+            line-height: 1.2;
+            color: var(--text-primary);
+            margin-bottom: 0.25rem;
+        }
+
+        .case__company {
+            font-size: 1rem;
+            font-weight: 600;
+            color: var(--text-secondary);
+        }
+
+        .case__bullets {
+            list-style: none;
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+            margin-top: 1rem;
+        }
+
+        .case__bullets li {
+            display: grid;
+            grid-template-columns: 88px 1fr;
+            gap: 12px;
+            align-items: start;
+        }
+
+        .case__tag {
+            font-family: var(--font-mono);
+            font-size: 0.65rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            padding: 2px 6px;
+            border-radius: 4px;
+            text-align: center;
+            width: 100%;
+        }
+
+        .case__tag.challenge {
+            background-color: #FEF2F2;
+            color: #B91C1C;
+            border: 0.5px solid #FEE2E2;
+        }
+
+        .case__tag.solution {
+            background-color: #ECFDF5;
+            color: #047857;
+            border: 0.5px solid #D1FAE5;
+        }
+
+        .case__body {
+            font-size: 0.95rem;
+            color: var(--text-secondary);
+            line-height: 1.6;
+        }
+
+        .case__body strong {
+            color: var(--text-primary);
+        }
+
+        .case__tech {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 6px;
+            margin-top: 1.5rem;
+        }
+
+        .case__tech span {
+            font-family: var(--font-mono);
+            font-size: 0.75rem;
+            font-weight: 500;
+            color: var(--text-secondary);
+            background: var(--bg-secondary);
+            border: 0.5px solid var(--border-color);
+            padding: 4px 10px;
+            border-radius: 49px;
+            transition: all 0.2s ease;
+        }
+
+        .case__tech span:hover {
+            background: var(--bg-highlight);
+            border-color: var(--accent-color);
+            color: var(--accent-color);
+        }
+
+        /* 4. Skills Section */
+        .skills__grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            gap: 25px;
+        }
+
+        .skills__card {
+            background: #ffffff;
+            border: 0.5px solid var(--border-color);
+            border-radius: 20px;
+            padding: 2rem;
+            display: flex;
+            flex-direction: column;
+            gap: 1.25rem;
+        }
+
+        .skills__card-title {
+            font-size: 1.1rem;
+            font-weight: 700;
+            color: var(--text-primary);
+            border-bottom: 2px solid var(--bg-highlight);
+            padding-bottom: 0.5rem;
+        }
+
+        .skills__tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 6px;
+        }
+
+        .skills__tags span {
+            font-family: var(--font-mono);
+            font-size: 0.75rem;
+            color: var(--text-secondary);
+            background: var(--bg-secondary);
+            border: 0.5px solid var(--border-color);
+            padding: 3px 8px;
+            border-radius: 6px;
+            transition: all 0.25s ease;
+        }
+
+        .skills__tags span:hover {
+            color: var(--accent-color);
+            border-color: var(--accent-color);
+            background: var(--bg-highlight);
+        }
+
+        /* 5. Mindset Section */
+        .mindset__box {
+            display: grid;
+            grid-template-columns: 0.8fr 1.2fr;
+            gap: 40px;
+            background: var(--bg-secondary);
+            border: 0.5px solid var(--border-color);
+            border-radius: 30px;
+            padding: 3.5rem;
+        }
+
+        .mindset__title h3 {
+            font-size: 1.8rem;
+            font-weight: 800;
+            color: var(--text-primary);
+            line-height: 1.2;
+        }
+
+        .mindset__content {
+            display: flex;
+            flex-direction: column;
+            gap: 1.5rem;
+            font-size: 1.05rem;
+            color: var(--text-secondary);
+        }
+
+        .mindset__bullets {
+            list-style: none;
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+        }
+
+        .mindset__bullets li {
+            position: relative;
+            padding-left: 1.5rem;
+        }
+
+        .mindset__bullets li::before {
+            content: '→';
+            position: absolute;
+            left: 0;
+            color: var(--accent-color);
+            font-weight: 700;
+        }
+
+        .mindset__bullets li strong {
+            color: var(--text-primary);
+        }
+
+        /* 6. Education Section */
+        .edu__list {
+            display: flex;
+            flex-direction: column;
+            gap: 2rem;
+        }
+
+        .edu__item {
+            display: grid;
+            grid-template-columns: 180px 1fr;
+            gap: 30px;
+            padding-bottom: 2rem;
+            border-bottom: 0.5px solid var(--border-color);
+        }
+
+        .edu__item:last-child {
+            border-bottom: none;
+            padding-bottom: 0;
+        }
+
+        .edu__meta {
+            display: flex;
+            flex-direction: column;
+            gap: 0.25rem;
+        }
+
+        .edu__date {
+            font-family: var(--font-mono);
+            font-size: 0.85rem;
+            font-weight: 700;
+            color: var(--accent-color);
+        }
+
+        .edu__org {
+            font-size: 0.75rem;
+            font-weight: 700;
+            color: var(--text-secondary);
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+        }
+
+        .edu__title {
+            font-size: 1.2rem;
+            font-weight: 700;
+            color: var(--text-primary);
+            margin-bottom: 0.25rem;
+        }
+
+        .edu__desc {
+            font-size: 0.95rem;
+            color: var(--text-secondary);
+            line-height: 1.6;
+        }
+
+        /* 7. Industry Partners Block */
+        .partners__grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 30px;
+            align-items: center;
+            text-align: center;
+        }
+
+        .partner__logo {
+            font-family: var(--font-display);
+            font-size: 1.25rem;
+            font-weight: 800;
+            color: var(--text-secondary);
+            border: 0.5px solid var(--border-color);
+            border-radius: 12px;
+            padding: 1.5rem 1rem;
+            background: #ffffff;
+            transition: all 0.3s ease;
+            cursor: default;
+        }
+
+        .partner__logo:hover {
+            color: var(--accent-color);
+            border-color: var(--accent-color);
+            background: var(--bg-secondary);
+        }
+
+        /* 8. Contact Form & Footer */
+        .contact__layout {
+            display: grid;
+            grid-template-columns: 1.2fr 0.8fr;
+            gap: 50px;
+        }
+
+        .contact__form {
+            display: flex;
+            flex-direction: column;
+            gap: 1.5rem;
+        }
+
+        .form-group {
+            display: flex;
+            flex-direction: column;
+            gap: 0.5rem;
+        }
+
+        .form-group label {
+            font-family: var(--font-mono);
+            font-size: 0.75rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            color: var(--text-secondary);
+        }
+
+        .form-control {
+            font-family: var(--font-sans);
+            width: 100%;
+            padding: 12px 18px;
+            border: 0.5px solid var(--border-color);
+            border-radius: 10px;
+            font-size: 0.95rem;
+            color: var(--text-primary);
+            transition: all 0.3s ease;
+            background: var(--bg-secondary);
+        }
+
+        .form-control:focus {
+            outline: none;
+            background: #ffffff;
+            border-color: var(--accent-color);
+            box-shadow: 0 0 0 3px var(--bg-highlight);
+        }
+
+        .btn-submit {
+            align-self: flex-start;
+            font-family: var(--font-sans);
+            background: var(--accent-color);
+            color: #ffffff;
+            font-weight: 700;
+            padding: 12px 36px;
+            border: none;
+            border-radius: 49px;
+            cursor: pointer;
+            transition: all 0.25s ease;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            font-size: 0.85rem;
+        }
+
+        .btn-submit:hover {
+            background-color: var(--accent-hover);
+            box-shadow: 0 5px 15px rgba(71, 121, 217, 0.3);
+            transform: translateY(-1px);
+        }
+
+        .contact__info {
+            display: flex;
+            flex-direction: column;
+            gap: 2rem;
+        }
+
+        .contact__details {
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+            font-size: 1rem;
+        }
+
+        .contact__item-link {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            text-decoration: none;
+            color: var(--text-primary);
+            font-weight: 600;
+            transition: color 0.2s ease;
+        }
+
+        .contact__item-link:hover {
+            color: var(--accent-color);
+        }
+
+        .contact__item-link i {
+            font-size: 1.15rem;
+            color: var(--accent-color);
+            width: 20px;
+            text-align: center;
+        }
+
+        .contact__socials {
+            display: flex;
+            gap: 1.5rem;
+        }
+
+        .contact__socials a {
+            font-size: 1.5rem;
+            color: var(--text-secondary);
+            transition: all 0.2s ease;
+        }
+
+        .contact__socials a:hover {
+            color: var(--accent-color);
+            transform: translateY(-2px);
+        }
+
+        .contact__qr {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            padding: 12px;
+            border: 0.5px solid var(--border-color);
+            border-radius: 16px;
+            background: #ffffff;
+            max-width: 280px;
+        }
+
+        .contact__qr img {
+            width: 70px;
+            height: 70px;
+            object-fit: contain;
+            border-radius: 6px;
+        }
+
+        .contact__qr-text {
+            display: flex;
+            flex-direction: column;
+            gap: 2px;
+        }
+
+        .contact__qr-title {
+            font-family: var(--font-mono);
+            font-size: 0.8rem;
+            font-weight: 700;
+            text-transform: uppercase;
+        }
+
+        .contact__qr-desc {
+            font-size: 0.75rem;
+            color: var(--text-secondary);
+        }
+
+        .contact__qr-wrapper {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+            max-width: 280px;
+        }
+
+        .vcf-download-btn {
+            text-align: center;
+            width: 100%;
+            padding: 8px 16px;
+            font-size: 0.75rem;
+        }
+
+        /* AJAX Form Submission Feedbacks */
+        .form-feedback {
+            display: none;
+            align-items: flex-start;
+            gap: 15px;
+            padding: 1.5rem;
+            border-radius: 12px;
+            margin-bottom: 1.5rem;
+        }
+        
+        .form-feedback.success {
+            background-color: #ECFDF5;
+            border: 0.5px solid #D1FAE5;
+            color: #065F46;
+        }
+        
+        .form-feedback.success i {
+            font-size: 1.5rem;
+            color: #10B981;
+        }
+        
+        .form-feedback.error {
+            background-color: #FEF2F2;
+            border: 0.5px solid #FEE2E2;
+            color: #991B1B;
+        }
+        
+        .form-feedback.error i {
+            font-size: 1.5rem;
+            color: #EF4444;
+        }
+        
+        .feedback-text h4 {
+            font-size: 0.95rem;
+            font-weight: 700;
+            margin-bottom: 4px;
+        }
+        
+        .feedback-text p {
+            font-size: 0.85rem;
+            line-height: 1.4;
+        }
+
+        /* Footer Copyright */
+        .footer {
+            background: var(--bg-secondary);
+            border-top: 0.5px solid var(--border-color);
+            padding: 3rem 0;
+            text-align: center;
+            font-size: 0.85rem;
+            color: var(--text-secondary);
+        }
+
+        /* Responsive Breakpoints matching RocketScience styling */
+        @media (max-width: 992px) {
+            .section-padding {
+                padding-top: 50px !important;
+                padding-bottom: 50px !important;
+            }
+
+            .header__container {
+                padding: 1rem 1.5rem;
+            }
+
+            .header__nav {
+                position: fixed;
+                top: 0;
+                right: -100%;
+                width: 300px;
+                height: 100vh;
+                background: #ffffff;
+                box-shadow: -10px 0 30px rgba(0,0,0,0.08);
+                flex-direction: column;
+                align-items: flex-start;
+                justify-content: flex-start;
+                padding: 6rem 2.5rem;
+                gap: 1.8rem;
+                transition: right 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+                z-index: 100;
+            }
+
+            .header__nav.active {
+                right: 0;
+            }
+
+            .header__nav-mobile-only {
+                display: flex;
+            }
+
+            .mobile-phone {
+                font-size: 1rem !important;
+                font-weight: 700;
+                color: var(--text-primary);
+                text-decoration: none;
+            }
+
+            .mobile-btn {
+                text-align: center;
+                width: 100%;
+            }
+
+            .header__right .header__phone,
+            .header__right .btn-outline {
+                display: none; /* Hide normal top-bar phone/button on tablet/mobile */
+            }
+
+            .header__toggle {
+                display: flex; /* Show hamburger toggle instead */
+            }
+
+            .hero__grid {
+                grid-template-columns: 1fr;
+                gap: 40px;
+            }
+            .hero__image-wrapper {
+                order: -1;
+            }
+            .hero__image {
+                width: 60%;
+            }
+            .case__card {
+                grid-template-columns: 1fr;
+                gap: 30px;
+                padding: 2.2rem;
+            }
+            .mindset__box {
+                grid-template-columns: 1fr;
+                gap: 25px;
+                padding: 2.5rem;
+            }
+            .contact__layout {
+                grid-template-columns: 1fr;
+                gap: 40px;
             }
         }
+
+        @media (max-width: 768px) {
+            .hero__title h1 {
+                font-size: 3.2rem;
+            }
+            .hero__overlay-card {
+                padding: 2rem 1.5rem;
+            }
+            .edu__item {
+                grid-template-columns: 1fr;
+                gap: 10px;
+            }
+            .section-title {
+                font-size: 2rem;
+            }
+        }
+
+        @media (max-width: 600px) {
+            .case__bullets li {
+                grid-template-columns: 1fr;
+                gap: 4px;
+            }
+            .case__tag {
+                width: max-content;
+            }
+            .hero__image {
+                width: 90%;
+            }
+        }
+
+        /* Print styles */
         @media print {
-            .break-before-page {
-                break-before: page;
-                margin-top: 0 !important;
+            body {
+                background: #FFFFFF;
+                color: #000000;
+            }
+            .header, .btn-outline, .btn-submit, .contact__qr, .contact__form {
+                display: none !important;
+            }
+            .container {
+                max-width: 100% !important;
+                padding: 0 !important;
+            }
+            .hero {
+                padding: 2rem 0 !important;
+            }
+            .hero__grid {
+                display: block;
+            }
+            .hero__image-wrapper {
+                display: none;
+            }
+            .hero__overlay-card {
+                background: transparent;
+                border: 1px solid #000;
+                padding: 1.5rem;
+                margin-left: 0;
+            }
+            .section-padding {
+                padding: 2rem 0 !important;
+            }
+            .case__card {
+                grid-template-columns: 1fr;
+                padding: 1.5rem 0;
+                border: none;
+                border-bottom: 1px solid #ccc;
+            }
+            .case__bullets li {
+                grid-template-columns: 85px 1fr;
+            }
+            .case__tag {
+                border: 1px solid #ccc !important;
+                background: transparent !important;
+                color: #000 !important;
+            }
+            .skills__grid {
+                grid-template-columns: 1fr 1fr;
+            }
+            .mindset__box {
+                grid-template-columns: 1fr;
+                background: transparent;
+                border: 1px solid #ccc;
+                padding: 1.5rem;
             }
         }
     </style>
 </head>
-<body class="text-gray-800 antialiased print:bg-white print:m-0">
+<body>
 
-    <div class="page-container print:shadow-none print:max-w-none print:m-0 print:w-full">
-        
-        <!-- LEFT SIDEBAR -->
-        <div class="w-full md:w-1/3 bg-slate-800 text-white p-8 md:min-h-screen">
-            
-            <!-- Profile Picture Placeholder -->
-            <div class="flex justify-center mb-8">
-                <img src="image.png" alt="Igors Volohovs" class="w-52 h-52 rounded-full object-cover border-4 border-slate-600">
-            </div>
+    <!-- Mobile menu backdrop overlay -->
+    <div class="menu-backdrop" id="menuBackdrop"></div>
 
-            <!-- Contacts Section -->
-            <div class="mb-8">
-                <h2 class="text-xl font-bold border-b-2 border-slate-600 pb-1 mb-4 tracking-wider uppercase">Contacts</h2>
-                <ul class="space-y-3 text-base">
-                    <li class="flex items-start">
-                        <i class="fas fa-phone mt-1 w-5 text-blue-400"></i>
-                        <span>+37127572829</span>
-                    </li>
-                    <li class="flex items-start">
-                        <i class="fas fa-envelope mt-1 w-5 text-blue-400"></i>
-                        <span class="break-all">igorsvolohovs@gmail.com</span>
-                    </li>
-                    <li class="flex items-start">
-                        <i class="fas fa-map-marker-alt mt-1 w-5 text-blue-400"></i>
-                        <span>47 Pūces iela, Riga, 1082, Latvia</span>
-                    </li>
-                </ul>
-                <div class="mt-6 flex flex-col items-center">
-                    <div class="p-2 bg-white rounded-lg shadow-md">
-                        <img src="vcf.jpg" alt="VCF QR Code" class="w-32 h-32 object-contain">
-                    </div>
-                    <p class="text-[10px] text-slate-400 mt-2 uppercase tracking-widest font-semibold">Scan to save VCF contact</p>
-                </div>
-            </div>
-
-            <!-- Links Section -->
-            <div class="mb-8">
-                <h2 class="text-xl font-bold border-b-2 border-slate-600 pb-1 mb-4 tracking-wider uppercase">Links</h2>
-                <ul class="space-y-3 text-base">
-                    <li class="flex items-start">
-                        <i class="fab fa-telegram mt-1 w-5 text-blue-400"></i>
-                        <a href="https://t.me/IgorsVolohovs" target="_blank" class="hover:text-blue-300 break-all">t.me/IgorsVolohovs</a>
-                    </li>
-                    <li class="flex items-start">
-                        <i class="fab fa-linkedin mt-1 w-5 text-blue-400"></i>
-                        <a href="https://www.linkedin.com/in/igors-volohovs-764850221/" target="_blank" class="hover:text-blue-300 break-all">linkedin.com/in/igors-volohovs-764850221/</a>
-                    </li>
-                    <li class="flex items-start">
-                        <i class="fab fa-github mt-1 w-5 text-blue-400"></i>
-                        <a href="https://github.com/IGORSVOLOHOVS" target="_blank" class="hover:text-blue-300 break-all">github.com/IGORSVOLOHOVS</a>
-                    </li>
-                </ul>
-            </div>
-
-            <!-- Skills Section -->
-            <div class="mb-8">
-                <h2 class="text-xl font-bold border-b-2 border-slate-600 pb-1 mb-4 tracking-wider uppercase">Skills</h2>
-                <div class="flex flex-wrap gap-2 text-base">
-                    <span class="bg-slate-700 text-slate-200 px-2 py-0.5 rounded">C++23</span>
-                    <span class="bg-slate-700 text-slate-200 px-2 py-0.5 rounded">Python 3.13</span>
-                    <span class="bg-slate-700 text-slate-200 px-2 py-0.5 rounded">Qt Framework</span>
-                    <span class="bg-slate-700 text-slate-200 px-2 py-0.5 rounded">Windows API</span>
-                    <span class="bg-slate-700 text-slate-200 px-2 py-0.5 rounded">Visual Studio</span>
-                    <span class="bg-slate-700 text-slate-200 px-2 py-0.5 rounded">CMake</span>
-                    <span class="bg-slate-700 text-slate-200 px-2 py-0.5 rounded">Github & Actions</span>
-                    <span class="bg-slate-700 text-slate-200 px-2 py-0.5 rounded">SWIG</span>
-                    <span class="bg-slate-700 text-slate-200 px-2 py-0.5 rounded">Google Antigravity</span>
-                    <span class="bg-slate-700 text-slate-200 px-2 py-0.5 rounded">Linux</span>
-                    <span class="bg-slate-700 text-slate-200 px-2 py-0.5 rounded">Conan</span>
-                    <span class="bg-slate-700 text-slate-200 px-2 py-0.5 rounded">FreeRTOS</span>
-                    <span class="bg-slate-700 text-slate-200 px-2 py-0.5 rounded">UML 2.0 / C4 Model</span>
-                    <span class="bg-slate-700 text-slate-200 px-2 py-0.5 rounded">Jira / Confluence</span>
-                    <span class="bg-slate-700 text-slate-200 px-2 py-0.5 rounded">Rust / Java / C# / Julia</span>
-                    <span class="bg-slate-700 text-slate-200 px-2 py-0.5 rounded">OpenGL</span>
-                    <span class="bg-slate-700 text-slate-200 px-2 py-0.5 rounded">STM32CubeIDE</span>
-                    <span class="bg-slate-700 text-slate-200 px-2 py-0.5 rounded">GTest / GBenchmark</span>
-                    <span class="bg-slate-700 text-slate-200 px-2 py-0.5 rounded">Docker / n8n</span>
-                    <span class="bg-slate-700 text-slate-200 px-2 py-0.5 rounded">Jenkins</span>
-                    <span class="bg-slate-700 text-slate-200 px-2 py-0.5 rounded">SQL</span>
-                </div>
-            </div>
-
-
-            <!-- Languages Section -->
-            <div class="mb-8">
-                <h2 class="text-xl font-bold border-b-2 border-slate-600 pb-1 mb-4 tracking-wider uppercase">Languages</h2>
-                <ul class="space-y-1 text-base">
-                    <li class="flex justify-between">
-                        <span>English</span>
-                        <span class="text-slate-400">Professional</span>
-                    </li>
-                    <li class="flex justify-between">
-                        <span>Latvian</span>
-                        <span class="text-slate-400">Native</span>
-                    </li>
-                    <li class="flex justify-between">
-                        <span>Russian</span>
-                        <span class="text-slate-400">Native</span>
-                    </li>
-                </ul>
-            </div>
-
-            <!-- Hobbies Section -->
-            <div class="mb-8">
-                <h2 class="text-xl font-bold border-b-2 border-slate-600 pb-1 mb-4 tracking-wider uppercase">Hobbies</h2>
-                <ul class="space-y-3 text-base">
-                    <li class="flex items-start">
-                        <i class="fas fa-cube mt-1 w-5 text-blue-400"></i>
-                        <span>Assemble a 3x3 - 7x7 Rubik's Cube</span>
-                    </li>
-                    <li class="flex items-start">
-                        <i class="fas fa-brain mt-1 w-5 text-blue-400"></i>
-                        <span>Learning Maths & Developing my own "Theory of effective thinking and task solving"</span>
-                    </li>
-                </ul>
-            </div>
-            
-        </div>
-
-        <!-- RIGHT MAIN CONTENT -->
-        <div class="w-full md:w-2/3 p-8 bg-white">
-            
-            <!-- Header (Name & Title) -->
-            <div class="mb-8">
-                <h1 class="text-4xl font-black text-gray-900 uppercase tracking-widest mb-1">Igors Volohovs</h1>
-                <h2 class="text-2xl text-blue-600 font-medium tracking-wider">C/C++ Developer</h2>
-            </div>
-
-            <!-- About Me -->
-            <div class="mb-8">
-                <h3 class="text-2xl font-bold text-gray-800 border-b-2 border-gray-200 pb-2 mb-4 uppercase flex items-center">
-                    <i class="fas fa-user-circle mr-3 text-gray-400"></i> About Me
-                </h3>
-                <p class="text-gray-600 leading-relaxed text-justify text-base">
-                    C++ Developer focused on solving complex technical challenges and low-level system optimization. I am a proactive learner who enjoys deep-diving into technology and sharing knowledge with the team.
-                </p>
-            </div>
-
-            <!-- Work Experience -->
-            <div class="mb-8">
-                <h3 class="text-2xl font-bold text-gray-800 border-b-2 border-gray-200 pb-2 mb-4 uppercase flex items-center">
-                    <i class="fas fa-briefcase mr-3 text-gray-400"></i> Work Experience
-                </h3>
+    <!-- Header Block -->
+    <header class="header" id="header">
+        <div class="container">
+            <div class="header__container">
+                <a href="#" class="header__logo">IGORS<span>VOLOHOVS</span></a>
                 
-                <!-- Job 1 -->
-                <div class="mb-6">
-                    <div class="flex flex-col sm:flex-row sm:justify-between sm:items-baseline mb-1">
-                        <h4 class="text-lg font-bold text-gray-900">Software Developer in TSI AdditiveLab</h4>
-                        <span class="text-sm font-semibold text-blue-600 bg-blue-50 px-2 py-1 rounded">Jan 2024 - Present</span>
-                    </div>
-                    <div class="text-md font-medium text-gray-700 mb-2">TSI | Riga, Latvia (Wire Arc Additive Manufacturing)</div>
-                    <p class="text-gray-600 text-base mb-2 text-justify">
-                        Developing <strong>WaamMonitoring</strong> — a comprehensive software for real-time monitoring, graphical analysis, and data storage of the metal 3D printing process (my Bachelor's thesis project). Implemented <strong>WaamAPI</strong>: a low-level HAL in C++23 with Python 3.13 bindings for seamless hardware-software integration.
-                    </p>
-                    <p class="text-gray-600 text-base mb-2">
-                        <strong>Hardware:</strong> Yaskawa GA-50, Yaskawa HC-10, Wenglor MLZL171 (2D profilometer), Optris CTi Pyrometers, Fronius TPS 500i.
-                    </p>
-                    <p class="text-sm font-semibold text-gray-500">
-                        <span class="text-gray-700">Technologies used:</span> C++23, Python 3.13, Qt Framework, Windows API.
-                    </p>
-                </div>
-
-                <!-- Job 0 (New) -->
-                <div class="mb-6">
-                    <div class="flex flex-col sm:flex-row sm:justify-between sm:items-baseline mb-1">
-                        <h4 class="text-lg font-bold text-gray-900">Software Developer (Edge AI)</h4>
-                        <span class="text-sm font-semibold text-blue-600 bg-blue-50 px-2 py-1 rounded">Jan 2026 - Present</span>
-                    </div>
-                    <div class="text-md font-medium text-gray-700 mb-2">TSI AdditiveLab | Riga, Latvia</div>
-                    <p class="text-gray-600 text-base mb-2 text-justify">
-                        Edge AI device based on Rockchip RV1106. Preparation of dataset, training and deployment of YOLOv8n neural network for defects localization. The goal of this project is to create a low-cost Edge AI device (robot mounted) to control quality of welding seems in AdditiveLab. 
-                    </p>
-                    <p class="text-sm font-semibold text-gray-500">
-                        <span class="text-gray-700">Technologies used:</span> YOLOv8n, Python, C++, OpenCV, SSH, RKNN-Toolkit2.
-                    </p>
-                </div>
-
-
-                <!-- Job 2 -->
-                <div class="mb-6">
-                    <div class="flex flex-col sm:flex-row sm:justify-between sm:items-baseline mb-1">
-                        <h4 class="text-lg font-bold text-gray-900">Medical Device Embedded Firmware Developer</h4>
-                        <span class="text-sm font-semibold text-blue-600 bg-blue-50 px-2 py-1 rounded">Dec 2022 - Present</span>
-                    </div>
-                    <div class="text-md font-medium text-gray-700 mb-2">IDEAHUB | Riga, Latvia</div>
-                    <p class="text-gray-600 text-base mb-2">
-                        Development of firmware for a medical cell staining machine. Connected various sensors, motors and network devices to STM32F4 MCUs, and wrote a driver for UART-USB module to connect Raspberry Pi with several STM32F4 MCUs.
-                    </p>
-                    <p class="text-sm font-semibold text-gray-500">
-                        <span class="text-gray-700">Technologies used:</span> C/C++11, STM32CubeIDE, Linux, Rust, SWIG.
-                    </p>
-                </div>
-
-                <!-- Job 3 -->
-                <div class="mb-6">
-                    <div class="flex flex-col sm:flex-row sm:justify-between sm:items-baseline mb-1">
-                        <h4 class="text-lg font-bold text-gray-900">ESF Project Developer</h4>
-                        <span class="text-sm font-semibold text-blue-600 bg-blue-50 px-2 py-1 rounded">Feb 2023 - Jul 2023</span>
-                    </div>
-                    <div class="text-md font-medium text-gray-700 mb-2">TSI | Riga, Latvia</div>
-                    <p class="text-gray-600 text-base mb-2">
-                        Creating software for the mobile robot KOALA. The goal was to create a user-friendly development environment in C/C++ and Python for creating new projects.
-                    </p>
-                    <p class="text-sm font-semibold text-gray-500">
-                        <span class="text-gray-700">Technologies used:</span> CMake, C/C++11, Python, Linux.
-                    </p>
-                </div>
-
-                <!-- Tutoring -->
-                <div class="mb-6">
-                    <div class="flex flex-col sm:flex-row sm:justify-between sm:items-baseline mb-1">
-                        <h4 class="text-lg font-bold text-gray-900">Private Tutor (Math & Programming)</h4>
-                        <span class="text-sm font-semibold text-blue-600 bg-blue-50 px-2 py-1 rounded">Sep 2022 - Present</span>
-                    </div>
-                    <p class="text-gray-600 text-sm">
-                        Teaching Mathematics and Programming to schoolchildren, helping them build strong logical foundations and practical coding skills.
-                    </p>
-                </div>
-            </div>
-
-            <!-- Education -->
-            <div class="mb-2">
-                <h3 class="text-2xl font-bold text-gray-800 border-b-2 border-gray-200 pb-2 mb-4 uppercase flex items-center">
-                    <i class="fas fa-graduation-cap mr-3 text-gray-400"></i> Education
-                </h3>
-                
-                <div class="relative border-l-2 border-blue-200 ml-3 pl-6 space-y-6">
+                <nav class="header__nav" id="headerNav">
+                    <a href="#about">About</a>
+                    <a href="#expertise">Services</a>
+                    <a href="#cases">Cases</a>
+                    <a href="#skills">Skills</a>
+                    <a href="#education">Education</a>
+                    <a href="#interests">Interests</a>
                     
-                    <!-- Edu - CV -->
-                    <div class="relative">
-                        <div class="absolute -left-[31px] top-1 h-4 w-4 rounded-full border-2 border-blue-500 bg-white"></div>
-                        <div class="flex flex-col sm:flex-row sm:items-baseline sm:justify-between mb-1">
-                            <h4 class="text-md font-bold text-gray-900">Computer Vision Course</h4>
-                            <span class="text-sm font-bold text-blue-600">Present</span>
-                        </div>
-                        <div class="text-base text-gray-600">Yandex Practicum</div>
-                        <p class="text-sm text-gray-500 mt-1">2 projects completed; working with OpenMMLab, PyTorch, ClearML, CVAT.</p>
+                    <!-- Mobile-only links inside drawer -->
+                    <div class="header__nav-mobile-only">
+                        <a href="tel:+37127572829" class="mobile-phone">+371 2757 2829</a>
+                        <a href="#contact" class="btn-outline mobile-btn">Leave a request</a>
                     </div>
+                </nav>
+                
+                <div class="header__right">
+                    <a href="tel:+37127572829" class="header__phone">+371 2757 2829</a>
+                    <a href="#contact" class="btn-outline">Leave a request</a>
+                    
+                    <!-- Hamburger Toggle -->
+                    <div class="header__toggle" id="headerToggle">
+                        <span></span>
+                        <span></span>
+                        <span></span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
 
-                    <!-- Edu - Middle C++ -->
-                    <div class="relative">
-                        <div class="absolute -left-[31px] top-1 h-4 w-4 rounded-full border-2 border-blue-500 bg-white"></div>
-                        <div class="flex flex-col sm:flex-row sm:items-baseline sm:justify-between mb-1">
-                            <h4 class="text-md font-bold text-gray-900">C++ Middle Developer</h4>
-                            <span class="text-sm font-bold text-blue-600">2025</span>
+    <!-- 1. Hero Block (.first block layout) -->
+    <section class="hero" id="about">
+        <div class="container">
+            <div class="hero__grid">
+                
+                <div class="hero__title">
+                    <h1>Igors Volohovs</h1>
+                    <h3>is a C/C++ & Embedded Systems Engineer building performance-critical software, real-time HALs, and Edge AI systems</h3>
+                    
+                    <div class="hero__overlay-card">
+                        <p>I focus on <strong>optimized low-level solutions</strong> that give engineering teams a crystal-clear understanding of <strong>where, how, and why</strong> hardware operates, ensuring robust real-time performance and seamless software-hardware cooperation.</p>
+                    </div>
+                </div>
+
+                <div class="hero__image-wrapper">
+                    <img src="image.png" alt="Igors Volohovs" class="hero__image">
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- 2. Services Section (.services) -->
+    <section class="section-padding section-dark" id="expertise">
+        <div class="container">
+            <div class="section-title-group">
+                <h2 class="section-title">Services</h2>
+            </div>
+            
+            <div class="services__grid">
+                
+                <!-- Service 1 -->
+                <div class="services__card">
+                    <div class="services__card-icon"><i class="fa-solid fa-microchip"></i></div>
+                    <h4>Systems Programming<br>& HAL Development</h4>
+                    <p>Writing performance-critical C++20/23 engines, custom memory allocators, and unified hardware abstraction layers mapping sensor matrices to virtual coordinate space.</p>
+                </div>
+
+                <!-- Service 2 -->
+                <div class="services__card">
+                    <div class="services__card-icon"><i class="fa-solid fa-code"></i></div>
+                    <h4>Embedded RTOS<br>& Firmware</h4>
+                    <p>Developing bare-metal and FreeRTOS-based firmware for STM32 and ARM Cortex microcontrollers, managing physical motors and high-speed sensors.</p>
+                </div>
+
+                <!-- Service 3 -->
+                <div class="services__card">
+                    <div class="services__card-icon"><i class="fa-solid fa-eye"></i></div>
+                    <h4>Edge AI<br>& Vision Integration</h4>
+                    <p>Quantizing, compiling, and deploying custom-trained neural networks (like YOLOv8n) onto resource-constrained NPU accelerators at the edge.</p>
+                </div>
+
+                <!-- Service 4 -->
+                <div class="services__card">
+                    <div class="services__card-icon"><i class="fa-solid fa-robot"></i></div>
+                    <h4>Robotics &<br>Industrial SDKs</h4>
+                    <p>Integrating pyrometers, laser scanners, and multi-axis industrial robots into single real-time control loops via custom cross-platform APIs.</p>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- 3. Cases Section (Timeline Work Experience) -->
+    <section class="section-padding" id="cases">
+        <div class="container">
+            <div class="section-title-group">
+                <h2 class="section-title">Selected Cases</h2>
+            </div>
+            
+            <div class="cases__timeline">
+                
+                <!-- Case 1 -->
+                <div class="case__card">
+                    <div class="case__meta">
+                        <span class="case__date">Jan 2026 — Present</span>
+                        <div class="case__title">
+                            <h3>Edge AI Quality Device</h3>
+                            <span class="case__company">TSI AdditiveLab | Riga, Latvia</span>
                         </div>
-                        <div class="text-base text-gray-600">Yandex Practicum</div>
-                        <p class="text-sm text-gray-500 mt-1">9 projects; advanced C++20/23 and introduction to C++26 standards.</p>
                     </div>
                     
-                    <!-- Edu 1 -->
-                    <div class="relative">
-                        <div class="absolute -left-[31px] top-1 h-4 w-4 rounded-full border-2 border-blue-500 bg-white"></div>
-                        <div class="flex flex-col sm:flex-row sm:items-baseline sm:justify-between mb-1">
-                            <h4 class="text-md font-bold text-gray-900">Computer Science Bachelor Program</h4>
-                            <span class="text-sm font-bold text-blue-600">2021 - Present</span>
+                    <div class="case__details">
+                        <p class="job-summary">
+                            Designed and deployed a robot-mounted Edge AI defect localization device for weld seam inspection.
+                        </p>
+                        <ul class="case__bullets">
+                            <li>
+                                <span class="case__tag challenge">Challenge</span>
+                                <span class="case__body">Deploying modern vision models on a resource-constrained NPU under tight power boundaries.</span>
+                            </li>
+                            <li>
+                                <span class="case__tag solution">Solution</span>
+                                <span class="case__body">Collected and trained custom <strong>YOLOv8n</strong> models, deploying them via <strong>RKNN-Toolkit2</strong> on the <strong>Rockchip RV1106</strong> to achieve real-time 30+ FPS detection.</span>
+                            </li>
+                            <li>
+                                <span class="case__tag challenge">Challenge</span>
+                                <span class="case__body">Integrating real-time coordinates of defect locations into the robotic motion loop.</span>
+                            </li>
+                            <li>
+                                <span class="case__tag solution">Solution</span>
+                                <span class="case__body">Developed light C++ network agents streaming dynamic bounding boxes via low-latency TCP sockets to the master Yaskawa robot controller.</span>
+                            </li>
+                        </ul>
+                        
+                        <div class="case__tech">
+                            <span>C++</span>
+                            <span>Python</span>
+                            <span>YOLOv8n</span>
+                            <span>RKNN-Toolkit2</span>
+                            <span>RV1106</span>
+                            <span>OpenCV</span>
+                            <span>TCP Sockets</span>
                         </div>
-                        <div class="text-base text-gray-600">TSI, Riga</div>
                     </div>
-
-                    <!-- Edu 2 -->
-                    <div class="relative">
-                        <div class="absolute -left-[31px] top-1 h-4 w-4 rounded-full border-2 border-blue-500 bg-white"></div>
-                        <div class="flex flex-col sm:flex-row sm:items-baseline sm:justify-between mb-1">
-                            <h4 class="text-md font-bold text-gray-900">C++ Developer (~300 tasks were solved)</h4>
-                            <span class="text-sm font-bold text-blue-600">2021</span>
-                        </div>
-                        <div class="text-base text-gray-600">Yandex Practicum</div>
-                    </div>
-
-                    <!-- Edu 3 -->
-                    <div class="relative">
-                        <div class="absolute -left-[31px] top-1 h-4 w-4 rounded-full border-2 border-blue-500 bg-white"></div>
-                        <div class="flex flex-col sm:flex-row sm:items-baseline sm:justify-between mb-1">
-                            <h4 class="text-md font-bold text-gray-900">Basic Course for Network Management</h4>
-                            <span class="text-sm font-bold text-blue-600">2019</span>
-                        </div>
-                        <div class="text-base text-gray-600">ITLAT, Riga</div>
-                    </div>
-
-                    <!-- Edu 4 -->
-                    <div class="relative">
-                        <div class="absolute -left-[31px] top-1 h-4 w-4 rounded-full border-2 border-blue-500 bg-white"></div>
-                        <div class="flex flex-col sm:flex-row sm:items-baseline sm:justify-between mb-1">
-                            <h4 class="text-md font-bold text-gray-900">Basic Course of Java</h4>
-                            <span class="text-sm font-bold text-blue-600">2018</span>
-                        </div>
-                        <div class="text-base text-gray-600">ITLAT, Riga</div>
-                    </div>
-
-                    <!-- Edu 5 -->
-                    <div class="relative">
-                        <div class="absolute -left-[31px] top-1 h-4 w-4 rounded-full border-2 border-blue-500 bg-white"></div>
-                        <div class="flex flex-col sm:flex-row sm:items-baseline sm:justify-between mb-1">
-                            <h4 class="text-md font-bold text-gray-900">Basic Course of C/C++</h4>
-                            <span class="text-sm font-bold text-blue-600">2017</span>
-                        </div>
-                        <div class="text-base text-gray-600">ITLAT, Riga</div>
-                    </div>
-
                 </div>
+
+                <!-- Case 2 -->
+                <div class="case__card">
+                    <div class="case__meta">
+                        <span class="case__date">Jan 2024 — Present</span>
+                        <div class="case__title">
+                            <h3>WaamMonitoring & HAL</h3>
+                            <span class="case__company">TSI AdditiveLab | Riga, Latvia</span>
+                        </div>
+                    </div>
+                    
+                    <div class="case__details">
+                        <p class="job-summary">
+                            Developed WaamMonitoring and WaamAPI — a C++23/Qt monitoring suite and unified HAL for industrial metal 3D printing.
+                        </p>
+                        <ul class="case__bullets">
+                            <li>
+                                <span class="case__tag challenge">Challenge</span>
+                                <span class="case__body">Coordinating physical devices with different interfaces (Yaskawa robots, Wenglor 2D profilometers, Optris pyrometers, Fronius welding sources).</span>
+                            </li>
+                            <li>
+                                <span class="case__tag solution">Solution</span>
+                                <span class="case__body">Wrote <strong>WaamAPI</strong> in C++23, wrapping native Windows APIs and vendor SDKs, exposing clean, object-oriented controllers to Python 3.13 bindings (via SWIG).</span>
+                            </li>
+                            <li>
+                                <span class="case__tag challenge">Challenge</span>
+                                <span class="case__body">Managing high-throughput profiling streams (thousands of points/sec) without UI locks.</span>
+                            </li>
+                            <li>
+                                <span class="case__tag solution">Solution</span>
+                                <span class="case__body">Implemented lock-free ring queues separating high-frequency hardware sensor threads from the main Qt visual rendering thread.</span>
+                            </li>
+                        </ul>
+                        
+                        <div class="case__tech">
+                            <span>C++23</span>
+                            <span>Python 3.13</span>
+                            <span>Qt Framework</span>
+                            <span>Windows API</span>
+                            <span>CMake</span>
+                            <span>SWIG</span>
+                            <span>Conan</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Case 3 -->
+                <div class="case__card">
+                    <div class="case__meta">
+                        <span class="case__date">Dec 2022 — Present</span>
+                        <div class="case__title">
+                            <h3>Cell Stainer Firmware</h3>
+                            <span class="case__company">IDEAHUB | Riga, Latvia</span>
+                        </div>
+                    </div>
+                    
+                    <div class="case__details">
+                        <p class="job-summary">
+                            Development of firmware and interface drivers for an automated medical cell staining machine.
+                        </p>
+                        <ul class="case__bullets">
+                            <li>
+                                <span class="case__tag challenge">Challenge</span>
+                                <span class="case__body">Establishing fault-tolerant command transmission between a master Raspberry Pi and multiple STM32 nodes over noisy USB-UART physical lines.</span>
+                            </li>
+                            <li>
+                                <span class="case__tag solution">Solution</span>
+                                <span class="case__body">Designed a custom serial protocol with CRC16 frame validation, sliding window retransmission, and dynamic recovery states.</span>
+                            </li>
+                            <li>
+                                <span class="case__tag challenge">Challenge</span>
+                                <span class="case__body">Precise real-time control of multiple physical valves and stepper motors with fail-safes.</span>
+                            </li>
+                            <li>
+                                <span class="case__tag solution">Solution</span>
+                                <span class="case__body">Coded bare-metal motor profile tables using STM32 DMA and timers; added hardware watchdogs and immediate system interrupt overrides for overflow safety.</span>
+                            </li>
+                        </ul>
+                        
+                        <div class="case__tech">
+                            <span>C/C++</span>
+                            <span>STM32F4</span>
+                            <span>FreeRTOS</span>
+                            <span>DMA / Timers</span>
+                            <span>Raspberry Pi</span>
+                            <span>Linux</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Case 4 -->
+                <div class="case__card">
+                    <div class="case__meta">
+                        <span class="case__date">Feb 2023 — Jul 2023</span>
+                        <div class="case__title">
+                            <h3>KOALA Robot SDK</h3>
+                            <span class="case__company">TSI | Riga, Latvia</span>
+                        </div>
+                    </div>
+                    
+                    <div class="case__details">
+                        <p class="job-summary">
+                            Created the software development SDK and compilation tooling for the KOALA educational mobile robot.
+                        </p>
+                        <ul class="case__bullets">
+                            <li>
+                                <span class="case__tag challenge">Challenge</span>
+                                <span class="case__body">Providing students a direct way to write robot behavior code without needing to initialize raw hardware registers.</span>
+                            </li>
+                            <li>
+                                <span class="case__tag solution">Solution</span>
+                                <span class="case__body">Designed a clean C++ & Python SDK mapping register commands into clean object-oriented APIs (e.g. `robot.set_speed()`).</span>
+                            </li>
+                            <li>
+                                <span class="case__tag challenge">Challenge</span>
+                                <span class="case__body">Compiling and running code on student laptops (Windows/Mac) to target the on-board robot Linux computer.</span>
+                            </li>
+                            <li>
+                                <span class="case__tag solution">Solution</span>
+                                <span class="case__body">Created cross-compiling CMake configurations and packed environment builders inside Docker containers to automate student deployments.</span>
+                            </li>
+                        </ul>
+                        
+                        <div class="case__tech">
+                            <span>CMake</span>
+                            <span>C/C++11</span>
+                            <span>Python</span>
+                            <span>Docker</span>
+                            <span>Cross-Compilation</span>
+                        </div>
+                    </div>
+                </div>
+
             </div>
-
         </div>
-    </div>
+    </section>
 
+    <!-- 4. Skills Matrix Section -->
+    <section class="section-padding section-dark" id="skills">
+        <div class="container">
+            <div class="section-title-group">
+                <h2 class="section-title">Skills Matrix</h2>
+            </div>
+            
+            <div class="skills__grid">
+                
+                <div class="skills__card">
+                    <h3 class="skills__card-title">Languages & Core</h3>
+                    <div class="skills-tags">
+                        <span>C++20/23</span>
+                        <span>Python 3.13</span>
+                        <span>Rust</span>
+                        <span>Java</span>
+                        <span>C#</span>
+                        <span>SQL</span>
+                        <span>CMake</span>
+                    </div>
+                </div>
+
+                <div class="skills__card">
+                    <h3 class="skills__card-title">Embedded & Hardware</h3>
+                    <div class="skills-tags">
+                        <span>STM32 (Cortex-M)</span>
+                        <span>FreeRTOS</span>
+                        <span>Bare-metal HAL</span>
+                        <span>DMA / Timers / Interrupts</span>
+                        <span>UART / SPI / I2C / USB-CDC</span>
+                        <span>Yaskawa GA-50 / HC-10</span>
+                        <span>2D Profilometer (Wenglor)</span>
+                        <span>Optris Pyrometers</span>
+                        <span>Fronius TPS 500i</span>
+                    </div>
+                </div>
+
+                <div class="skills__card">
+                    <h3 class="skills__card-title">Edge AI & Vision</h3>
+                    <div class="skills-tags">
+                        <span>YOLOv8</span>
+                        <span>PyTorch</span>
+                        <span>RKNN-Toolkit2</span>
+                        <span>Rockchip RV1106</span>
+                        <span>OpenCV</span>
+                        <span>OpenMMLab</span>
+                        <span>ClearML</span>
+                        <span>CVAT</span>
+                    </div>
+                </div>
+
+                <div class="skills__card">
+                    <h3 class="skills__card-title">Tools & Infrastructure</h3>
+                    <div class="skills-tags">
+                        <span>Qt Framework</span>
+                        <span>Windows API</span>
+                        <span>SWIG / Bindings</span>
+                        <span>GTest / GBenchmark</span>
+                        <span>Docker</span>
+                        <span>Conan Package Manager</span>
+                        <span>n8n Workflows</span>
+                        <span>Jenkins CI/CD</span>
+                        <span>Google Antigravity</span>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- 5. Interests & Hobbies Section -->
+    <section class="section-padding" id="interests">
+        <div class="container">
+            <div class="section-title-group">
+                <h2 class="section-title">Beyond Engineering</h2>
+            </div>
+            
+            <div class="services__grid" style="grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));">
+                
+                <div class="services__card">
+                    <div class="services__card-icon"><i class="fa-solid fa-brain"></i></div>
+                    <h4>Mathematics & Logic</h4>
+                    <p>Formulating a structured methodology for heuristic problem-solving to help decompose complex software challenges and speed up debugging in multi-threaded environments.</p>
+                </div>
+                
+                <div class="services__card">
+                    <div class="services__card-icon"><i class="fa-solid fa-cubes"></i></div>
+                    <h4>Speedcubing</h4>
+                    <p>Solving geometric puzzles. Proficient in solving Rubik's cubes ranging from standard 3x3 up to 7x7 formats, training mental patience and visual pattern recognition.</p>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- 6. Education Section -->
+    <section class="section-padding section-dark" id="education">
+        <div class="container">
+            <div class="section-title-group">
+                <h2 class="section-title">Education</h2>
+            </div>
+            
+            <div class="edu__list">
+                
+                <div class="edu__item">
+                    <div class="edu__meta">
+                        <span class="edu__date">Apr 2026 — Jun 2026</span>
+                        <span class="edu__org">Yandex Practicum</span>
+                    </div>
+                    <div class="edu__details">
+                        <h3 class="edu__title">Computer Vision Specialist</h3>
+                        <p class="edu__desc">In-depth training on neural networks for vision. Built and deployed models using PyTorch, OpenMMLab, ClearML, and CVAT.</p>
+                    </div>
+                </div>
+
+                <div class="edu__item">
+                    <div class="edu__meta">
+                        <span class="edu__date">2025</span>
+                        <span class="edu-org">Yandex Practicum</span>
+                    </div>
+                    <div class="edu__details">
+                        <h3 class="edu__title">C++ Middle Developer Certification</h3>
+                        <p class="edu__desc">Advanced systems programming course focusing on C++20/23, template metaprogramming, custom memory managers, and asynchronous programming. Completed 9 large projects.</p>
+                    </div>
+                </div>
+
+                <div class="edu__item">
+                    <div class="edu__meta">
+                        <span class="edu__date">2021 — Jul 2026</span>
+                        <span class="edu__org">TSI (Transport and Telecommunication Institute)</span>
+                    </div>
+                    <div class="edu__details">
+                        <h3 class="edu__title">B.Sc. in Computer Science</h3>
+                        <p class="edu__desc">Specializing in software engineering and robotic systems integration. Graduated on July 4, 2026. Thesis focused on real-time WAAM welding monitoring systems.</p>
+                    </div>
+                </div>
+
+                <div class="edu__item">
+                    <div class="edu__meta">
+                        <span class="edu__date">2021</span>
+                        <span class="edu__org">Yandex Practicum</span>
+                    </div>
+                    <div class="edu__details">
+                        <h3 class="edu__title">C++ Developer Course</h3>
+                        <p class="edu__desc">Rigorous algorithm and systems training. Solved 300+ data structure and algorithm challenges.</p>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- 7. Contact Request Section & Form -->
+    <section class="section-padding section-dark" id="contact">
+        <div class="container">
+            <div class="section-title-group">
+                <h2 class="section-title">Leave a Request</h2>
+            </div>
+            
+            <div class="contact__layout">
+                
+                <!-- To make this form work on GitHub Pages, get a free access key from https://web3forms.com/ and paste it below -->
+                <form class="contact__form" action="https://api.web3forms.com/submit" method="POST">
+                    <!-- Replace the value below with your Web3Forms access key to activate emailing -->
+                    <input type="hidden" name="access_key" value="7af7c547-01cf-4cd4-a2be-098f8b7163c6">
+                    <input type="hidden" name="subject" value="New Contact Form Submission from CV Website">
+                    <input type="checkbox" name="botcheck" id="" style="display: none;">
+
+                    <!-- Success Feedback Box -->
+                    <div id="formSuccess" class="form-feedback success">
+                        <i class="fa-solid fa-circle-check"></i>
+                        <div class="feedback-text">
+                            <h4>Request Sent Successfully</h4>
+                            <p>Thank you! Your message has been received. Igors will get back to you shortly.</p>
+                        </div>
+                    </div>
+
+                    <!-- Error Feedback Box -->
+                    <div id="formError" class="form-feedback error">
+                        <i class="fa-solid fa-circle-exclamation"></i>
+                        <div class="feedback-text">
+                            <h4>Oops! Something went wrong</h4>
+                            <p>Could not send request. Please email directly at <a href="mailto:igorsvolohovs@gmail.com">igorsvolohovs@gmail.com</a>.</p>
+                        </div>
+                    </div>
+
+                    <div id="formContentWrap" style="display: flex; flex-direction: column; gap: 1.5rem; width: 100%;">
+                        <div class="form-group">
+                            <label for="name">Your Name</label>
+                            <input type="text" id="name" name="name" class="form-control" placeholder="Enter your name" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="email">Your Email</label>
+                            <input type="email" id="email" name="email" class="form-control" placeholder="Enter your email" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="message">Project Context / Tasks to Solve</label>
+                            <textarea id="message" name="message" rows="5" class="form-control" placeholder="Explain what technical problems you need solved..." required></textarea>
+                        </div>
+                        <button type="submit" class="btn-submit">Send request</button>
+                    </div>
+                </form>
+
+                <div class="contact__info">
+                    <div class="contact__details">
+                        <a href="mailto:igorsvolohovs@gmail.com" class="contact__item-link">
+                            <i class="fa-solid fa-envelope"></i> igorsvolohovs@gmail.com
+                        </a>
+                        <a href="tel:+37127572829" class="contact__item-link">
+                            <i class="fa-solid fa-phone"></i> +371 2757 2829
+                        </a>
+                        <div class="contact__item-link" style="cursor: default;">
+                            <i class="fa-solid fa-location-dot"></i> Riga, Latvia
+                        </div>
+                    </div>
+                    
+                    <div class="contact__socials">
+                        <a href="https://t.me/IgorsVolohovs" target="_blank"><i class="fa-brands fa-telegram"></i></a>
+                        <a href="https://www.linkedin.com/in/igors-volohovs-764850221/" target="_blank"><i class="fa-brands fa-linkedin"></i></a>
+                        <a href="https://github.com/IGORSVOLOHOVS" target="_blank"><i class="fa-brands fa-github"></i></a>
+                    </div>
+
+                    <div class="contact__qr-wrapper">
+                        <div class="contact__qr">
+                            <img src="vcf.jpg" alt="VCF Contact QR">
+                            <div class="contact__qr-text">
+                                <span class="contact__qr-title">VCF CARD</span>
+                                <span class="contact__qr-desc">Scan on desktop</span>
+                            </div>
+                        </div>
+                        <a href="contacts.vcf" class="btn-outline vcf-download-btn" download><i class="fa-solid fa-download"></i> Save Contact (.vcf)</a>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer Copyright -->
+    <footer class="footer">
+        <div class="container">
+            <p>&copy; 2026 Igors Volohovs. All rights reserved. Functional & Aesthetic.</p>
+        </div>
+    </footer>
+
+    <!-- Header Scroll Background Effect & Mobile Toggle script -->
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const header = document.getElementById('header');
+            
+            window.addEventListener('scroll', () => {
+                if (window.scrollY > 50) {
+                    header.style.padding = '0.5rem 0';
+                    header.querySelector('.header__container').style.boxShadow = '0px 8px 25px rgba(0, 0, 0, 0.07)';
+                } else {
+                    header.style.padding = '0';
+                    header.querySelector('.header__container').style.boxShadow = '0px 4px 15px rgba(0, 0, 0, 0.04)';
+                }
+            });
+
+            // Mobile menu logic
+            const headerToggle = document.getElementById('headerToggle');
+            const headerNav = document.getElementById('headerNav');
+            const menuBackdrop = document.getElementById('menuBackdrop');
+            const navLinksMobile = headerNav.querySelectorAll('a');
+
+            function toggleMenu() {
+                headerToggle.classList.toggle('active');
+                headerNav.classList.toggle('active');
+                menuBackdrop.classList.toggle('active');
+                document.body.style.overflow = headerNav.classList.contains('active') ? 'hidden' : '';
+            }
+
+            headerToggle.addEventListener('click', toggleMenu);
+            menuBackdrop.addEventListener('click', toggleMenu);
+
+            // Close mobile menu when clicking a link
+            navLinksMobile.forEach(link => {
+                link.addEventListener('click', () => {
+                    if (headerNav.classList.contains('active')) {
+                        toggleMenu();
+                    }
+                });
+            });
+
+            // Web3Forms AJAX Form Submission
+            const form = document.querySelector('.contact__form');
+            const formSuccess = document.getElementById('formSuccess');
+            const formError = document.getElementById('formError');
+            const formContentWrap = document.getElementById('formContentWrap');
+            const submitBtn = form.querySelector('.btn-submit');
+
+            form.addEventListener('submit', function(e) {
+                e.preventDefault();
+                
+                // Show loading state
+                submitBtn.disabled = true;
+                const originalText = submitBtn.textContent;
+                submitBtn.textContent = 'Sending...';
+
+                const formData = new FormData(form);
+                const object = Object.fromEntries(formData);
+                const json = JSON.stringify(object);
+
+                fetch('https://api.web3forms.com/submit', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                        'Accept': 'application/json'
+                    },
+                    body: json
+                })
+                .then(async (response) => {
+                    let res = await response.json();
+                    if (response.status == 200) {
+                        formSuccess.style.display = 'flex';
+                        formError.style.display = 'none';
+                        formContentWrap.style.display = 'none';
+                    } else {
+                        console.log(response);
+                        formError.querySelector('p').textContent = res.message || 'Could not send request.';
+                        formError.style.display = 'flex';
+                        submitBtn.disabled = false;
+                        submitBtn.textContent = originalText;
+                    }
+                })
+                .catch(error => {
+                    console.log(error);
+                    formError.style.display = 'flex';
+                    submitBtn.disabled = false;
+                    submitBtn.textContent = originalText;
+                });
+            });
+        });
+    </script>
 </body>
 </html>

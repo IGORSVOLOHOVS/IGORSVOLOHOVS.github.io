@@ -1,0 +1,11 @@
+BEGIN:VCARD
+VERSION:3.0
+FN:Igors Volohovs
+ORG:TSI AdditiveLab
+TITLE:C/C++ & Embedded Engineer
+TEL;TYPE=CELL,VOICE:+37127572829
+EMAIL;TYPE=PREF,INTERNET:igorsvolohovs@gmail.com
+URL:https://igorsvolohovs.github.io/
+X-SOCIALPROFILE;TYPE=telegram:https://t.me/IgorsVolohovs
+X-SOCIALPROFILE;TYPE=linkedin:https://www.linkedin.com/in/igors-volohovs-764850221/
+END:VCARD
