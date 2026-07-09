@@ -262,23 +262,29 @@
             margin-bottom: 40px;
         }
 
-        /* Hero background video (behind headline + overlay card) */
+        /* Hero background video - spans the WHOLE hero section (behind both
+           the headline block and the photo on the right), not just a boxed
+           square on the left. */
+        .hero__video-bg {
+            position: absolute;
+            inset: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            z-index: 0;
+        }
+
+        .hero .container {
+            position: relative;
+            z-index: 1;
+        }
+
         .hero__video-block {
             position: relative;
             border-radius: 24px;
             overflow: hidden;
             padding: 2.5rem 2rem;
             isolation: isolate;
-        }
-
-        .hero__video-bg {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            z-index: -2;
         }
 
         .hero__video-block::after {
@@ -548,6 +554,19 @@
             object-fit: cover;
             border-radius: 14px;
             border: 0.5px solid var(--border-color);
+        }
+
+        /* Galleries/videos live in the meta column, right under the case
+           title, filling the empty space that used to sit below it. Images
+           keep the default 2-per-row sizing so a 3-photo gallery stays
+           roughly the same height as the text column next to it. */
+        .case__meta .case__gallery {
+            margin-top: 0.5rem;
+        }
+
+        .case__meta .case__video {
+            width: 100%;
+            max-width: 320px;
         }
 
         @media (max-width: 600px) {
@@ -1174,14 +1193,14 @@
 
     <!-- 1. Hero Block (.first block layout) -->
     <section class="hero" id="about">
+        <video class="hero__video-bg" autoplay muted loop playsinline>
+            <source src="assets/video/hero-bg.mp4" type="video/mp4">
+        </video>
         <div class="container">
             <div class="hero__grid">
-                
+
                 <div class="hero__title">
                     <div class="hero__video-block">
-                        <video class="hero__video-bg" autoplay muted loop playsinline>
-                            <source src="assets/video/hero-bg.mp4" type="video/mp4">
-                        </video>
                         <h1>Igors Volohovs</h1>
                         <h3>is a C/C++ & Embedded Systems Engineer building performance-critical software, real-time HALs, and Edge AI systems</h3>
 
@@ -1252,64 +1271,19 @@
                 <!-- Case 1 -->
                 <div class="case__card">
                     <div class="case__meta">
-                        <span class="case__date">Jan 2026 — Present</span>
-                        <div class="case__title">
-                            <h3>Edge AI Quality Device</h3>
-                            <span class="case__company">TSI AdditiveLab | Riga, Latvia</span>
-                        </div>
-                    </div>
-                    
-                    <div class="case__details">
-                        <p class="job-summary">
-                            Designed and deployed a robot-mounted Edge AI defect localization device for weld seam inspection.
-                        </p>
-                        <ul class="case__bullets">
-                            <li>
-                                <span class="case__tag challenge">Challenge</span>
-                                <span class="case__body">Deploying modern vision models on a resource-constrained NPU under tight power boundaries.</span>
-                            </li>
-                            <li>
-                                <span class="case__tag solution">Solution</span>
-                                <span class="case__body">Collected and trained custom <strong>YOLOv8n</strong> models, deploying them via <strong>RKNN-Toolkit2</strong> on the <strong>Rockchip RV1106</strong> to achieve real-time 30+ FPS detection.</span>
-                            </li>
-                            <li>
-                                <span class="case__tag challenge">Challenge</span>
-                                <span class="case__body">Integrating real-time coordinates of defect locations into the robotic motion loop.</span>
-                            </li>
-                            <li>
-                                <span class="case__tag solution">Solution</span>
-                                <span class="case__body">Developed light C++ network agents streaming dynamic bounding boxes via low-latency TCP sockets to the master Yaskawa robot controller.</span>
-                            </li>
-                        </ul>
-                        
-                        <div class="case__tech">
-                            <span>C++</span>
-                            <span>Python</span>
-                            <span>YOLOv8n</span>
-                            <span>RKNN-Toolkit2</span>
-                            <span>RV1106</span>
-                            <span>OpenCV</span>
-                            <span>TCP Sockets</span>
-                        </div>
-
-                        <div class="case__gallery case__gallery--video">
-                            <video class="case__video" autoplay muted loop playsinline>
-                                <source src="assets/video/edge-ai-rv1106.mp4" type="video/mp4">
-                            </video>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Case 2 -->
-                <div class="case__card">
-                    <div class="case__meta">
                         <span class="case__date">Jan 2024 — Present</span>
                         <div class="case__title">
                             <h3>WaamMonitoring & HAL</h3>
                             <span class="case__company">TSI AdditiveLab | Riga, Latvia</span>
                         </div>
+
+                        <div class="case__gallery">
+                            <img src="assets/cases/waam-monitoring-ui.jpg" alt="WaamMonitoring software showing real-time 3D print visualization" loading="lazy">
+                            <img src="assets/cases/edge-ai-laser-scan.jpg" alt="Laser profilometer scanning a weld seam for defect inspection" loading="lazy">
+                            <img src="assets/cases/edge-ai-laser-profile.jpg" alt="Real-time laser profile analysis with annotated max point" loading="lazy">
+                        </div>
                     </div>
-                    
+
                     <div class="case__details">
                         <p class="job-summary">
                             Developed WaamMonitoring and WaamAPI — a C++23/Qt monitoring suite and unified HAL for industrial metal 3D printing.
@@ -1332,7 +1306,7 @@
                                 <span class="case__body">Implemented lock-free ring queues separating high-frequency hardware sensor threads from the main Qt visual rendering thread.</span>
                             </li>
                         </ul>
-                        
+
                         <div class="case__tech">
                             <span>C++23</span>
                             <span>Python 3.13</span>
@@ -1342,12 +1316,56 @@
                             <span>SWIG</span>
                             <span>Conan</span>
                         </div>
+                    </div>
+                </div>
 
-                        <div class="case__gallery">
-                            <img src="assets/cases/waam-robot-welding.jpg" alt="Yaskawa industrial robot performing WAAM metal 3D printing" loading="lazy">
-                            <img src="assets/cases/waam-monitoring-ui.jpg" alt="WaamMonitoring software showing real-time 3D print visualization" loading="lazy">
-                            <img src="assets/cases/edge-ai-laser-scan.jpg" alt="Laser profilometer scanning a weld seam for defect inspection" loading="lazy">
-                            <img src="assets/cases/edge-ai-laser-profile.jpg" alt="Real-time laser profile analysis with annotated max point" loading="lazy">
+                <!-- Case 2 -->
+                <div class="case__card">
+                    <div class="case__meta">
+                        <span class="case__date">Jan 2026 — Present</span>
+                        <div class="case__title">
+                            <h3>Edge AI Quality Device</h3>
+                            <span class="case__company">TSI AdditiveLab | Riga, Latvia</span>
+                        </div>
+
+                        <div class="case__gallery case__gallery--video">
+                            <video class="case__video" autoplay muted loop playsinline>
+                                <source src="assets/video/edge-ai-rv1106.mp4" type="video/mp4">
+                            </video>
+                        </div>
+                    </div>
+
+                    <div class="case__details">
+                        <p class="job-summary">
+                            Designed and deployed a robot-mounted Edge AI defect localization device for weld seam inspection.
+                        </p>
+                        <ul class="case__bullets">
+                            <li>
+                                <span class="case__tag challenge">Challenge</span>
+                                <span class="case__body">Deploying modern vision models on a resource-constrained NPU under tight power boundaries.</span>
+                            </li>
+                            <li>
+                                <span class="case__tag solution">Solution</span>
+                                <span class="case__body">Collected and trained custom <strong>YOLOv8n</strong> models, deploying them via <strong>RKNN-Toolkit2</strong> on the <strong>Rockchip RV1106</strong> to achieve real-time 30+ FPS detection.</span>
+                            </li>
+                            <li>
+                                <span class="case__tag challenge">Challenge</span>
+                                <span class="case__body">Integrating real-time coordinates of defect locations into the robotic motion loop.</span>
+                            </li>
+                            <li>
+                                <span class="case__tag solution">Solution</span>
+                                <span class="case__body">Developed light C++ network agents streaming dynamic bounding boxes via low-latency TCP sockets to the master Yaskawa robot controller.</span>
+                            </li>
+                        </ul>
+
+                        <div class="case__tech">
+                            <span>C++</span>
+                            <span>Python</span>
+                            <span>YOLOv8n</span>
+                            <span>RKNN-Toolkit2</span>
+                            <span>RV1106</span>
+                            <span>OpenCV</span>
+                            <span>TCP Sockets</span>
                         </div>
                     </div>
                 </div>
@@ -1359,6 +1377,11 @@
                         <div class="case__title">
                             <h3>Cell Stainer Firmware</h3>
                             <span class="case__company">IDEAHUB | Riga, Latvia</span>
+                        </div>
+
+                        <div class="case__gallery">
+                            <img src="assets/cases/cellstainer-relay-board.jpg" alt="Relay boards wired to breadboard for valve and motor control" loading="lazy">
+                            <img src="assets/cases/cellstainer-stm32.jpg" alt="STM32 microcontroller prototyping on breadboard" loading="lazy">
                         </div>
                     </div>
                     
@@ -1393,11 +1416,6 @@
                             <span>Raspberry Pi</span>
                             <span>Linux</span>
                         </div>
-
-                        <div class="case__gallery">
-                            <img src="assets/cases/cellstainer-relay-board.jpg" alt="Relay boards wired to breadboard for valve and motor control" loading="lazy">
-                            <img src="assets/cases/cellstainer-stm32.jpg" alt="STM32 microcontroller prototyping on breadboard" loading="lazy">
-                        </div>
                     </div>
                 </div>
 
@@ -1408,6 +1426,12 @@
                         <div class="case__title">
                             <h3>KOALA Robot SDK</h3>
                             <span class="case__company">TSI | Riga, Latvia</span>
+                        </div>
+
+                        <div class="case__gallery">
+                            <img src="assets/cases/koala-robot-bottom.jpg" alt="KOALA educational mobile robot underside showing K-Team electronics" loading="lazy">
+                            <img src="assets/cases/koala-robot-desk.jpg" alt="KOALA mobile robot connected to a workstation for development" loading="lazy">
+                            <img src="assets/cases/koala-group-photo.jpg" alt="Team working together on the KOALA robot project" loading="lazy">
                         </div>
                     </div>
                     
@@ -1440,12 +1464,6 @@
                             <span>Python</span>
                             <span>Docker</span>
                             <span>Cross-Compilation</span>
-                        </div>
-
-                        <div class="case__gallery case__gallery--triple">
-                            <img src="assets/cases/koala-robot-bottom.jpg" alt="KOALA educational mobile robot underside showing K-Team electronics" loading="lazy">
-                            <img src="assets/cases/koala-robot-desk.jpg" alt="KOALA mobile robot connected to a workstation for development" loading="lazy">
-                            <img src="assets/cases/koala-group-photo.jpg" alt="Team working together on the KOALA robot project" loading="lazy">
                         </div>
                     </div>
                 </div>
