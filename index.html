@@ -88,6 +88,7 @@
             display: flex;
             justify-content: space-between;
             align-items: center;
+            gap: 2.5rem;
             transition: all 0.3s ease;
         }
 
@@ -259,6 +260,39 @@
             line-height: 1.35;
             color: var(--text-primary);
             margin-bottom: 40px;
+        }
+
+        /* Hero background video (behind headline + overlay card) */
+        .hero__video-block {
+            position: relative;
+            border-radius: 24px;
+            overflow: hidden;
+            padding: 2.5rem 2rem;
+            isolation: isolate;
+        }
+
+        .hero__video-bg {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            z-index: -2;
+        }
+
+        .hero__video-block::after {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(120deg, rgba(255,255,255,0.55) 0%, rgba(255,255,255,0.42) 55%, rgba(255,255,255,0.32) 100%);
+            z-index: -1;
+        }
+
+        .hero__video-block h1,
+        .hero__video-block h3 {
+            position: relative;
+            text-shadow: 0 0 14px rgba(255,255,255,0.95), 0 0 34px rgba(255,255,255,0.8);
         }
 
         .hero__image-wrapper {
@@ -485,6 +519,47 @@
             color: var(--accent-color);
         }
 
+        .case__gallery {
+            display: flex;
+            gap: 12px;
+            margin-top: 1.5rem;
+            flex-wrap: wrap;
+        }
+
+        .case__gallery img {
+            width: calc(50% - 6px);
+            aspect-ratio: 4 / 3;
+            object-fit: cover;
+            border-radius: 14px;
+            border: 0.5px solid var(--border-color);
+        }
+
+        .case__gallery--triple img {
+            width: calc(33.33% - 8px);
+        }
+
+        .case__gallery--video {
+            justify-content: center;
+        }
+
+        .case__video {
+            width: min(100%, 340px);
+            aspect-ratio: 9 / 16;
+            object-fit: cover;
+            border-radius: 14px;
+            border: 0.5px solid var(--border-color);
+        }
+
+        @media (max-width: 600px) {
+            .case__gallery img {
+                width: 100%;
+            }
+
+            .case__gallery--triple img {
+                width: 100%;
+            }
+        }
+
         /* 4. Skills Section */
         .skills__grid {
             display: grid;
@@ -668,7 +743,7 @@
         /* 8. Contact Form & Footer */
         .contact__layout {
             display: grid;
-            grid-template-columns: 1.2fr 0.8fr;
+            grid-template-columns: 0.8fr 1.2fr;
             gap: 50px;
         }
 
@@ -1078,13 +1153,13 @@
                     <!-- Mobile-only links inside drawer -->
                     <div class="header__nav-mobile-only">
                         <a href="tel:+37127572829" class="mobile-phone">+371 2757 2829</a>
-                        <a href="#contact" class="btn-outline mobile-btn">Leave a request</a>
+                        <a href="#contact" class="btn-outline mobile-btn">Contact me</a>
                     </div>
                 </nav>
                 
                 <div class="header__right">
                     <a href="tel:+37127572829" class="header__phone">+371 2757 2829</a>
-                    <a href="#contact" class="btn-outline">Leave a request</a>
+                    <a href="#contact" class="btn-outline">Contact me</a>
                     
                     <!-- Hamburger Toggle -->
                     <div class="header__toggle" id="headerToggle">
@@ -1103,11 +1178,16 @@
             <div class="hero__grid">
                 
                 <div class="hero__title">
-                    <h1>Igors Volohovs</h1>
-                    <h3>is a C/C++ & Embedded Systems Engineer building performance-critical software, real-time HALs, and Edge AI systems</h3>
-                    
-                    <div class="hero__overlay-card">
-                        <p>I focus on <strong>optimized low-level solutions</strong> that give engineering teams a crystal-clear understanding of <strong>where, how, and why</strong> hardware operates, ensuring robust real-time performance and seamless software-hardware cooperation.</p>
+                    <div class="hero__video-block">
+                        <video class="hero__video-bg" autoplay muted loop playsinline>
+                            <source src="assets/video/hero-bg.mp4" type="video/mp4">
+                        </video>
+                        <h1>Igors Volohovs</h1>
+                        <h3>is a C/C++ & Embedded Systems Engineer building performance-critical software, real-time HALs, and Edge AI systems</h3>
+
+                        <div class="hero__overlay-card">
+                            <p>I focus on <strong>optimized low-level solutions</strong> that give engineering teams a crystal-clear understanding of <strong>where, how, and why</strong> hardware operates, ensuring robust real-time performance and seamless software-hardware cooperation.</p>
+                        </div>
                     </div>
                 </div>
 
@@ -1211,6 +1291,12 @@
                             <span>OpenCV</span>
                             <span>TCP Sockets</span>
                         </div>
+
+                        <div class="case__gallery case__gallery--video">
+                            <video class="case__video" autoplay muted loop playsinline>
+                                <source src="assets/video/edge-ai-rv1106.mp4" type="video/mp4">
+                            </video>
+                        </div>
                     </div>
                 </div>
 
@@ -1256,6 +1342,13 @@
                             <span>SWIG</span>
                             <span>Conan</span>
                         </div>
+
+                        <div class="case__gallery">
+                            <img src="assets/cases/waam-robot-welding.jpg" alt="Yaskawa industrial robot performing WAAM metal 3D printing" loading="lazy">
+                            <img src="assets/cases/waam-monitoring-ui.jpg" alt="WaamMonitoring software showing real-time 3D print visualization" loading="lazy">
+                            <img src="assets/cases/edge-ai-laser-scan.jpg" alt="Laser profilometer scanning a weld seam for defect inspection" loading="lazy">
+                            <img src="assets/cases/edge-ai-laser-profile.jpg" alt="Real-time laser profile analysis with annotated max point" loading="lazy">
+                        </div>
                     </div>
                 </div>
 
@@ -1300,6 +1393,11 @@
                             <span>Raspberry Pi</span>
                             <span>Linux</span>
                         </div>
+
+                        <div class="case__gallery">
+                            <img src="assets/cases/cellstainer-relay-board.jpg" alt="Relay boards wired to breadboard for valve and motor control" loading="lazy">
+                            <img src="assets/cases/cellstainer-stm32.jpg" alt="STM32 microcontroller prototyping on breadboard" loading="lazy">
+                        </div>
                     </div>
                 </div>
 
@@ -1342,6 +1440,12 @@
                             <span>Python</span>
                             <span>Docker</span>
                             <span>Cross-Compilation</span>
+                        </div>
+
+                        <div class="case__gallery case__gallery--triple">
+                            <img src="assets/cases/koala-robot-bottom.jpg" alt="KOALA educational mobile robot underside showing K-Team electronics" loading="lazy">
+                            <img src="assets/cases/koala-robot-desk.jpg" alt="KOALA mobile robot connected to a workstation for development" loading="lazy">
+                            <img src="assets/cases/koala-group-photo.jpg" alt="Team working together on the KOALA robot project" loading="lazy">
                         </div>
                     </div>
                 </div>
@@ -1510,7 +1614,38 @@
             </div>
             
             <div class="contact__layout">
-                
+
+                <div class="contact__info">
+                    <div class="contact__details">
+                        <a href="mailto:igorsvolohovs@gmail.com" class="contact__item-link">
+                            <i class="fa-solid fa-envelope"></i> igorsvolohovs@gmail.com
+                        </a>
+                        <a href="tel:+37127572829" class="contact__item-link">
+                            <i class="fa-solid fa-phone"></i> +371 2757 2829
+                        </a>
+                        <div class="contact__item-link" style="cursor: default;">
+                            <i class="fa-solid fa-location-dot"></i> Riga, Latvia
+                        </div>
+                    </div>
+
+                    <div class="contact__socials">
+                        <a href="https://t.me/IgorsVolohovs" target="_blank"><i class="fa-brands fa-telegram"></i></a>
+                        <a href="https://www.linkedin.com/in/igors-volohovs-764850221/" target="_blank"><i class="fa-brands fa-linkedin"></i></a>
+                        <a href="https://github.com/IGORSVOLOHOVS" target="_blank"><i class="fa-brands fa-github"></i></a>
+                    </div>
+
+                    <div class="contact__qr-wrapper">
+                        <div class="contact__qr">
+                            <img src="vcf.jpg" alt="VCF Contact QR">
+                            <div class="contact__qr-text">
+                                <span class="contact__qr-title">VCF CARD</span>
+                                <span class="contact__qr-desc">Scan on desktop</span>
+                            </div>
+                        </div>
+                        <a href="contacts.vcf" class="btn-outline vcf-download-btn" download><i class="fa-solid fa-download"></i> Save Contact (.vcf)</a>
+                    </div>
+                </div>
+
                 <!-- To make this form work on GitHub Pages, get a free access key from https://web3forms.com/ and paste it below -->
                 <form class="contact__form" action="https://api.web3forms.com/submit" method="POST">
                     <!-- Replace the value below with your Web3Forms access key to activate emailing -->
@@ -1552,37 +1687,6 @@
                         <button type="submit" class="btn-submit">Send request</button>
                     </div>
                 </form>
-
-                <div class="contact__info">
-                    <div class="contact__details">
-                        <a href="mailto:igorsvolohovs@gmail.com" class="contact__item-link">
-                            <i class="fa-solid fa-envelope"></i> igorsvolohovs@gmail.com
-                        </a>
-                        <a href="tel:+37127572829" class="contact__item-link">
-                            <i class="fa-solid fa-phone"></i> +371 2757 2829
-                        </a>
-                        <div class="contact__item-link" style="cursor: default;">
-                            <i class="fa-solid fa-location-dot"></i> Riga, Latvia
-                        </div>
-                    </div>
-                    
-                    <div class="contact__socials">
-                        <a href="https://t.me/IgorsVolohovs" target="_blank"><i class="fa-brands fa-telegram"></i></a>
-                        <a href="https://www.linkedin.com/in/igors-volohovs-764850221/" target="_blank"><i class="fa-brands fa-linkedin"></i></a>
-                        <a href="https://github.com/IGORSVOLOHOVS" target="_blank"><i class="fa-brands fa-github"></i></a>
-                    </div>
-
-                    <div class="contact__qr-wrapper">
-                        <div class="contact__qr">
-                            <img src="vcf.jpg" alt="VCF Contact QR">
-                            <div class="contact__qr-text">
-                                <span class="contact__qr-title">VCF CARD</span>
-                                <span class="contact__qr-desc">Scan on desktop</span>
-                            </div>
-                        </div>
-                        <a href="contacts.vcf" class="btn-outline vcf-download-btn" download><i class="fa-solid fa-download"></i> Save Contact (.vcf)</a>
-                    </div>
-                </div>
 
             </div>
         </div>
