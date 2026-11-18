@@ -4,6 +4,25 @@ Reverse-engineered on 2026-11-18 from commit `a8914e7` (branch `release`).
 Every requirement describes behaviour present in the files at that commit.
 Line numbers refer to that commit.
 
+<!-- jira-sync:start -->
+Jira: KAN-109
+
+## Tasks
+
+This list is one ticket in Jira project KAN, [KAN-109](https://igorsvolohovs.atlassian.net/browse/KAN-109). Each line is a checkbox there: tick it in Jira and the sync ticks it here; add a checkbox there and it is appended here. Done items are the features described in section 3; open items are what the project declares but the code does not do yet.
+
+- [x] Page and navigation (section 3.1) <!-- spec-page-and-navigation -->
+- [x] Case galleries and lightbox (section 3.2) <!-- spec-case-galleries-and-lightbox -->
+- [x] Contact (section 3.3) <!-- spec-contact -->
+- [x] Print and vCard (section 3.4) <!-- spec-print-and-vcard -->
+- [x] Repository standard (section 3.5) <!-- spec-repository-standard -->
+- [ ] Hero background video: (declared, not implemented) <!-- spec-hero-background-video -->
+- [ ] `.mindset__*` styles (`index.html:867-912`, `:1295`, `:1380`) and (declared, not implemented) <!-- spec-mindset-styles-index-html-867-912-1295-1380-and -->
+- [ ] `assets/cases/edge-ai-laser-scan.jpg`, `assets/cases/waam-robot-welding.jpg` (declared, not implemented) <!-- spec-assets-cases-edge-ai-laser-scan-jpg-assets-cases-w -->
+- [ ] `.claude/pytest.ini` declares a place for tests of repository scripts: (declared, not implemented) <!-- spec-claude-pytest-ini-declares-a-place-for-tests-of-re -->
+
+<!-- jira-sync:end -->
+
 ## 1. Purpose and scope
 
 The system is a static, single-page portfolio site of Igors Volohovs
