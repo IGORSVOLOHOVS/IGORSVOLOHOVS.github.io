@@ -266,3 +266,82 @@ There is no package manifest or lock file. Dependencies are named in files:
 7. Whether a Gitea runner (`runs-on: windows`) serves this repository.
 8. Performance or size targets: none in the files; the two referenced videos
    are about 8.7 MB together and autoplay.
+
+## Screenshots of requirements
+
+### FR-1 - Whole site in one index.html, no build step
+
+> Screenshot skipped: not reached in this pass (time box).
+
+### FR-2 - Title, description, keywords and Open Graph tags
+
+![FR-2](docs/screenshots/FR-2.png)
+*Captured 2026-11-20 with the local helper `term.py` (runs the command and renders its real output; not part of this repository) in the repository root: `python -I -c "import re; [print(str(n) + ': ' + l.strip()[:110]) for n, l in enumerate(open('index.html', encoding='utf-8'), 1) if re.search(r'<title>|name=\"(description|keywords)\"|property=\"og:', l)]"`. Shows the title, description, keywords and Open Graph tags at lines 6-16, with `og:image` = `https://igorsvolohovs.github.io/image.png`; long lines are cut at 110 characters.*
+
+### FR-3 - Fixed header with anchor links and Contact me
+
+![FR-3](docs/screenshots/FR-3.png)
+*Captured 2026-11-20 from a checkout of commit `123f970` with the local headless-Chrome helper `shot.js` (not part of this repository): `node shot.js file:///<checkout>/index.html FR-3.png --width 1280 --height 800`, page top, no setup steps. Header links About, Services, Cases, Skills, Education, Interests and the Contact me button; the lettering is a fallback font, most likely because the web fonts had not loaded within the default 1.2 s wait (later shots used `--wait 3000`).*
+
+### FR-4 - Header padding and shadow after 50 px scroll
+
+![FR-4](docs/screenshots/FR-4.png)
+*Captured 2026-11-20 from a checkout of commit `123f970`: `node shot-scrolled.js file:///<checkout>/index.html FR-4.png --width 1280 --height 800 --wait 3000 --setup scroll300.js`, where `scroll300.js` runs `window.scrollTo(0, 300)` and `shot-scrolled.js` is a copy of `shot.js` whose clip starts at `window.scrollY` (the original always clips from y = 0, which left the scrolled view blank). Page scrolled 300 px: the header now sits 8 px below the top with a visible shadow; compare FR-3 at scroll 0.*
+
+### FR-5 - Side drawer navigation at widths up to 992 px
+
+![FR-5](docs/screenshots/FR-5.png)
+*Captured 2026-11-20 from a checkout of commit `123f970` with the local headless-Chrome helper `shot.js` (not part of this repository): `node shot.js file:///<checkout>/index.html FR-5.png --width 800 --height 900 --wait 3000 --setup drawer.js`, where `drawer.js` waits for the DOM, clicks `#headerToggle` and fails unless `#headerNav` has class `active`. At 800 px the drawer is open on the right with the six links, phone and Contact me, the toggle shows a close cross and the page behind it is blurred by the backdrop. The scroll lock (`body` overflow `hidden`) was read from the page in the same state, not seen in the picture; closing by backdrop or link click is not shown.*
+
+### FR-6 - Section order: hero, services, cases, skills, interests, education, contact
+
+![FR-6](docs/screenshots/FR-6.png)
+*Captured 2026-11-20 from a checkout of commit `123f970` with the local headless-Chrome helper `shot.js` (not part of this repository): `node shot.js file:///<checkout>/index.html FR-6.png --width 1280 --height 800 --full --setup zoom-half.js`, where `zoom-half.js` sets `document.body.style.zoom = '0.5'` so the whole page fits the helper's 6000 px full-page cap (at zoom 1 the page is taller and the capture stopped inside Education). Top to bottom: hero with portrait, Services (4), Selected Cases (4), Skills Matrix (4), Beyond Engineering (2), Education (4), Leave a Request.*
+
+### FR-7 - Case videos autoplay muted, looped, inline
+
+> Screenshot skipped: not reached in this pass (time box).
+
+### FR-8 - Slider arrows and dots in multi-item galleries
+
+> Screenshot skipped: not reached in this pass (time box).
+
+### FR-9 - Full-screen lightbox on gallery click
+
+![FR-9](docs/screenshots/FR-9.png)
+*Captured 2026-11-20 from a checkout of commit `123f970` with the local headless-Chrome helper `shot.js` (not part of this repository): `node shot.js file:///<checkout>/index.html FR-9.png --width 1280 --height 800 --wait 3000 --setup lightbox.js`, where `lightbox.js` clicks the first `.case__gallery img` and fails unless `#lightbox` has class `active`. The full-screen lightbox shows a copy of the first WaamMonitoring image with its `alt` text as caption, the previous/next arrows and the close button.*
+
+### FR-10 - Lightbox next/previous, wrap-around and close
+
+> Screenshot skipped: not reached in this pass (time box).
+
+### FR-11 - Contact links, QR image and vCard download
+
+![FR-11](docs/screenshots/FR-11.png)
+*Captured 2026-11-20 from a checkout of commit `123f970`: `node shot-scrolled.js file:///<checkout>/index.html FR-11.png --width 1280 --height 800 --wait 3000 --setup contact.js`, where `contact.js` scrolls `#contact` into view (see FR-4 for `shot-scrolled.js`). E-mail link, phone link, location line, the three profile links, the QR image and the Save Contact (.VCF) link. The icon font did not load in this offline capture, so the profile links and the icons render as empty squares; the `target` of the profile links is not visible in a picture.*
+
+### FR-12 - Form requires name, valid e-mail and message
+
+> Screenshot skipped: not reached in this pass (time box).
+
+### FR-13 - Submit disables button, Sending..., JSON POST to Web3Forms
+
+> Screenshot skipped: not reached in this pass (time box).
+
+### FR-14 - Success box on 200, error box otherwise
+
+> Screenshot skipped: not reached in this pass (time box).
+
+### FR-15 - Print layout hides header, buttons, QR, form, portrait
+
+> Screenshot skipped: not reached in this pass (time box).
+
+### FR-16 - contacts.vcf is a vCard 3.0 with N, FN, TITLE, TEL, EMAIL, URL, PHOTO
+
+![FR-16](docs/screenshots/FR-16.png)
+*Captured 2026-11-20 with the local helper `term.py` (runs the command and renders its real output; not part of this repository) in the repository root: `python -I -c "[print(l.rstrip()[:70]) for l in open('contacts.vcf', encoding='utf-8') if not l.startswith(' ')]"`. Prints every unfolded line of `contacts.vcf`, cut at 70 characters: VERSION:3.0 and N, FN, TEL, EMAIL, TITLE, URL and the start of the base64 PHOTO. The contact details are the ones the public site already shows.*
+
+### FR-17 - recipe.ps1 verbs per repo-quality-template
+
+![FR-17](docs/screenshots/FR-17.png)
+*Captured 2026-11-20 with the local helper `term.py` (runs the command and renders its real output; not part of this repository) in the repository root: `powershell -NoProfile -ExecutionPolicy Bypass -File recipe.ps1 info`, exit code 0. Shows only the `info` verb (name, code, version, summary); `test`, `clean` and the other verbs were not run for this picture.*
